@@ -67,6 +67,40 @@
          (TR) Sayfa bölümleri arasında yumuşak kaydırma
       -------------------------------------------------------------*/
       html { scroll-behavior: smooth; }
+  /* ------------------------------------------------------------
+     (TR) Projects bölümü: simetrik, eş yükseklikte kartlar
+  -------------------------------------------------------------*/
+  #projects .features{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  @media (max-width: 980px){
+    #projects .features{ grid-template-columns: 1fr; }
+  }
+  /* Kart iskeleti */
+  #projects .card{
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+    padding: 1.8rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+  }
+  /* Üst kısım: ikon + başlık */
+  #projects .card-head{
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: .75rem;
+  }
+  #projects .card-icon{ font-size: 2.2rem; line-height: 1; }
+  #projects .card-title{ margin: 0; }
+  /* Gövde esnesin, link her zaman alta insin */
+  #projects .card-body{ flex: 1; }
+  #projects .card .actions{ margin-top: 1rem; }
+
+
     </style>
   </head>
   <body class="is-preload">
@@ -179,58 +213,79 @@
 </section>
 
 
-        <!-- PROJECTS (TR: Projeler) — Görselsiz, ikonlu grid -->
+        <!-- PROJECTS (TR: Projeler) — Simetrik, ikonlu kartlar -->
 <section id="projects" class="wrapper alt style1">
   <div class="inner">
     <h2 class="major">Projects</h2>
 
-    <!-- (TR) İki sütun grid; mobilde otomatik alt alta düşer -->
-    <section class="features" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <section class="features">
 
       <!-- Proje 1 -->
-      <article style="background: rgba(255,255,255,0.03); padding: 1.6rem; border-radius: 8px;">
-        <span class="icon solid fa-truck-loading" style="font-size: 2.2rem;"></span>
-        <h3 class="major" style="margin-top: .6rem;">Autonomous Forklift Prototype with Mecanum Wheels</h3>
-        <p>
-          Project management, design for manufacturing, purchasing management, and software/material selection.
-          ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.
-        </p>
-        <a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view"
-           target="_blank" rel="noopener noreferrer">Poster</a>
+      <article class="card">
+        <div class="card-head">
+          <span class="icon solid fa-truck-loading card-icon" aria-hidden="true"></span>
+          <h3 class="major card-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
+        </div>
+        <div class="card-body">
+          <p>
+            Project management, design for manufacturing, purchasing management, and software/material selection.
+            ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.
+          </p>
+        </div>
+        <ul class="actions">
+          <li><a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view"
+                 target="_blank" rel="noopener noreferrer">Poster</a></li>
+        </ul>
       </article>
 
       <!-- Proje 2 -->
-      <article style="background: rgba(255,255,255,0.03); padding: 1.6rem; border-radius: 8px;">
-        <span class="icon solid fa-robot" style="font-size: 2.2rem;"></span>
-        <h3 class="major" style="margin-top: .6rem;">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
-        <p>
-          Mechanical design and software for Autonomous Forklift; overall team leadership.
-          Qualified for the finals.
-        </p>
-        <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-           target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <article class="card">
+        <div class="card-head">
+          <span class="icon solid fa-robot card-icon" aria-hidden="true"></span>
+          <h3 class="major card-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
+        </div>
+        <div class="card-body">
+          <p>
+            Mechanical design and software for Autonomous Forklift; overall team leadership.
+            Qualified for the finals.
+          </p>
+        </div>
+        <ul class="actions">
+          <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
+                 target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
       </article>
 
       <!-- Proje 3 -->
-      <article style="background: rgba(255,255,255,0.03); padding: 1.6rem; border-radius: 8px;">
-        <span class="icon solid fa-route" style="font-size: 2.2rem;"></span>
-        <h3 class="major" style="margin-top: .6rem;">Motion Planning with Husky UGV</h3>
-        <p>
-          Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.
-        </p>
-        <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-           target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <article class="card">
+        <div class="card-head">
+          <span class="icon solid fa-route card-icon" aria-hidden="true"></span>
+          <h3 class="major card-title">Motion Planning with Husky UGV</h3>
+        </div>
+        <div class="card-body">
+          <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
+        </div>
+        <ul class="actions">
+          <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
+                 target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
       </article>
 
       <!-- Proje 4 -->
-      <article style="background: rgba(255,255,255,0.03); padding: 1.6rem; border-radius: 8px;">
-        <span class="icon solid fa-rocket" style="font-size: 2.2rem;"></span>
-        <h3 class="major" style="margin-top: .6rem;">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
-        <p>
-          Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.
-        </p>
-        <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-           target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <article class="card">
+        <div class="card-head">
+          <span class="icon solid fa-rocket card-icon" aria-hidden="true"></span>
+          <h3 class="major card-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
+        </div>
+        <div class="card-body">
+          <p>
+            Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.
+          </p>
+        </div>
+        <ul class="actions">
+          <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
+                 target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
       </article>
 
     </section>
