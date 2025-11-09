@@ -42,59 +42,69 @@
 
       /* =============== PROJECTS — kart düzeni =============== */
       /* liste tek sütun, temanın article marginlerini sıfırla */
+      /* =============== PROJECTS — ikon | başlık | içerik =============== */
       #projects .features{
         display: flex !important;
-        flex-direction: column; gap: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
       }
-      #projects .features{
-        display: grid !important;
-        grid-template-columns: 1fr;      /* tek sütun, başlık çizgisi kadar */
-        gap: 1.25rem;
-      }
-      #projects .features > article{
-        width: 100% !important;          /* temanın %45/%50 genişliğini sıfırla */
-        margin: 0 !important;
-        box-sizing: border-box;
-      }
+      #projects .features > article{ margin: 0 !important; }
 
-      /* Kart gövdesi */
+      /* Kart: [ikon] [başlık] [içerik] */
       .proj-card{
-        width: 100%;
         display: grid;
-        grid-template-columns: 64px 1fr auto; /* ikon | içerik | aksiyon */
-        gap: 1rem;
-        align-items: start;
-        padding: 1.4rem 1.6rem;
+        grid-template-columns: 72px 260px 1fr; /* ikon | başlık | içerik */
+        gap: 1.25rem 1.5rem;
+        padding: 1.8rem 1.8rem 2.2rem;         /* altta biraz boşluk */
+        background: rgba(255,255,255,.04);
         border-radius: 12px;
-        background: rgba(255,255,255,0.04);
         transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        box-sizing: border-box;
+        width: 100%;
       }
       .proj-card:hover{
         transform: translateY(-2px);
+        background: rgba(255,255,255,.065);
         box-shadow: 0 8px 24px rgba(0,0,0,.25);
-        background: rgba(255,255,255,0.06);
       }
 
-      /* İkon rozeti */
+      /* Sol ikon */
       .proj-icon{
-        width: 64px; height: 64px; border-radius: 50%;
+        width: 72px; height: 72px; border-radius: 50%;
         display: grid; place-items: center;
-        background: rgba(255,255,255,0.08);
+        background: rgba(255,255,255,.08);
+        font-size: 1.8rem;
       }
-      .proj-icon .icon{ font-size: 1.7rem; line-height: 1; }
 
-      /* İçerik ve aksiyon */
-      .proj-body h3{ margin: .1rem 0 .4rem 0; }
-      .proj-body p{ margin: 0; opacity: .9; }
-      .proj-action{ align-self: center; }
+      /* Orta başlık bloğu */
+      .proj-head{ display: flex; flex-direction: column; gap: .5rem; }
+
+      /* Başlık 3 satıra sabitle (fazlasını kes) */
+      .proj-title{
+        margin: 0;
+        max-width: 260px;                 /* 3 satıra zorlamak için sabit genişlik */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Sağ içerik: kartın ortasından başla */
+      .proj-right{
+        display: grid;
+        align-content: center;            /* dikeyde ortadan başlat */
+      }
+      .proj-right p{ margin: 0 0 .8rem 0; opacity: .9; }
       .proj-action .special{ white-space: nowrap; }
 
-      /* Küçük ekran düzeni */
-      @media (max-width: 640px){
+      /* Mobil: tek kolon */
+      @media (max-width: 780px){
         .proj-card{ grid-template-columns: 48px 1fr; }
-        .proj-action{ grid-column: 2 / 3; margin-top: .6rem; justify-self: start; }
-        .proj-icon{ width: 48px; height: 48px; }
+        .proj-head{ order: 2; }          /* mobilde başlık içerikten önce gelsin */
+        .proj-right{ order: 3; align-content: start; margin-top: .5rem; }
+        .proj-icon{ width: 48px; height: 48px; font-size: 1.4rem; }
       }
+
     </style>
 
   </head>
@@ -190,65 +200,72 @@
 
               <!-- Proje 1 -->
               <article class="proj-card">
-                <div class="proj-left">
-                  <div class="proj-icon"><span class="icon solid fa-truck-loading" aria-hidden="true"></span></div>
+                <div class="proj-icon"><span class="icon solid fa-truck-loading" aria-hidden="true"></span></div>
+
+                <div class="proj-head">
                   <h3 class="major proj-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
-                </div>
-                <div class="proj-divider"></div>
-                <div class="proj-right">
-                  <p>Project management, design for manufacturing, purchasing management, and software/material selection. ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.</p>
                   <div class="proj-action">
                     <a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view" target="_blank" rel="noopener">Poster</a>
                   </div>
+                </div>
+
+                <div class="proj-right">
+                  <p>Project management, design for manufacturing, purchasing management, and software/material selection. ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.</p>
                 </div>
               </article>
 
               <!-- Proje 2 -->
               <article class="proj-card">
-                <div class="proj-left">
-                  <div class="proj-icon"><span class="icon solid fa-robot" aria-hidden="true"></span></div>
+                <div class="proj-icon"><span class="icon solid fa-robot" aria-hidden="true"></span></div>
+
+                <div class="proj-head">
                   <h3 class="major proj-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
-                </div>
-                <div class="proj-divider"></div>
-                <div class="proj-right">
-                  <p>Mechanical design and software for Autonomous Forklift; overall team leadership. Qualified for the finals.</p>
                   <div class="proj-action">
                     <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
                   </div>
+                </div>
+
+                <div class="proj-right">
+                  <p>Mechanical design and software for Autonomous Forklift; overall team leadership. Qualified for the finals.</p>
                 </div>
               </article>
 
               <!-- Proje 3 -->
               <article class="proj-card">
-                <div class="proj-left">
-                  <div class="proj-icon"><span class="icon solid fa-route" aria-hidden="true"></span></div>
+                <div class="proj-icon"><span class="icon solid fa-route" aria-hidden="true"></span></div>
+
+                <div class="proj-head">
                   <h3 class="major proj-title">Motion Planning with Husky UGV</h3>
-                </div>
-                <div class="proj-divider"></div>
-                <div class="proj-right">
-                  <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
                   <div class="proj-action">
                     <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
                   </div>
+                </div>
+
+                <div class="proj-right">
+                  <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
                 </div>
               </article>
 
               <!-- Proje 4 -->
               <article class="proj-card">
-                <div class="proj-left">
-                  <div class="proj-icon"><span class="icon solid fa-rocket" aria-hidden="true"></span></div>
+                <div class="proj-icon"><span class="icon solid fa-rocket" aria-hidden="true"></span></div>
+
+                <div class="proj-head">
                   <h3 class="major proj-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
-                </div>
-                <div class="proj-divider"></div>
-                <div class="proj-right">
-                  <p>Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.</p>
                   <div class="proj-action">
                     <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
                   </div>
                 </div>
+
+                <div class="proj-right">
+                  <p>Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.</p>
+                </div>
               </article>
 
             </section>
+          </div>
+        </section>
+
 
             <ul class="actions" style="margin-top:1rem;">
               <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
