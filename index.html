@@ -16,98 +16,86 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
-      /* ------------------------------------------------------------
-         (TR) Üst menüyü düz, yatay ve temiz göster (hamburgersiz)
-      -------------------------------------------------------------*/
-      #header .topnav { display: block; }
-      #header .topnav .links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 1.25rem;
-        align-items: center;
-      }
-      #header .topnav .links li { margin: 0; }
-      #header .topnav .links a { text-decoration: none; }
+  /* ------------------------------------------------------------
+     (TR) Üst menüyü düz, yatay ve temiz göster (hamburgersiz)
+  -------------------------------------------------------------*/
+    #header .topnav { display: block; }
+    #header .topnav .links {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; gap: 1.25rem; align-items: center;
+    }
+    #header .topnav .links li { margin: 0; }
+    #header .topnav .links a { text-decoration: none; }
 
-      /* (TR) Hamburger menü ikonunu tamamen gizle (temadan gelebilir) */
-      #header nav a[href="#menu"] { display: none !important; }
+  /* (TR) Hamburger menüyü gizle */
+    #header nav a[href="#menu"] { display: none !important; }
 
-      /* ------------------------------------------------------------
-         (TR) Sticky header — sayfayı kaydırınca üstte sabit kalsın
-      -------------------------------------------------------------*/
-      #header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: saturate(120%) blur(6px);
-        background: rgba(20, 20, 25, 0.65);
-      }
+  /* (TR) Sticky header */
+    #header {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: saturate(120%) blur(6px);
+      background: rgba(20, 20, 25, 0.65);
+    }
 
-      /* ------------------------------------------------------------
-         (TR) Aktif menü linki — görünür bölüm alt çizgisi
-      -------------------------------------------------------------*/
-      #header .topnav .links a.active {
-        border-bottom: 2px solid #6cc091;
-        padding-bottom: 2px;
-      }
+    /* (TR) Aktif menü linki */
+    #header .topnav .links a.active {
+      border-bottom: 2px solid #6cc091; padding-bottom: 2px;
+    }
 
-      /* ------------------------------------------------------------
-         (TR) Küçük ekranlarda menü satır sarsın
-      -------------------------------------------------------------*/
-      @media (max-width: 980px) {
-        #header .topnav .links {
-          flex-wrap: wrap;
-          gap: .75rem;
-        }
-      }
+    /* (TR) Küçük ekranlarda menü sarma */
+    @media (max-width: 980px) {
+      #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+    }
 
-      /* ------------------------------------------------------------
-         (TR) Sayfa bölümleri arasında yumuşak kaydırma
-      -------------------------------------------------------------*/
-      html { scroll-behavior: smooth; }
+    /* (TR) Yumuşak kaydırma */
+    html { scroll-behavior: smooth; }
 
-      /* ------------------------------------------------------------
-         (TR) Projects bölümü: simetrik GRID + eş yükseklikte kartlar
-         Not: Tema .features için flex kullanıyor; grid'e ZORLAMAK için !important kullandık.
-      -------------------------------------------------------------*/
-      #projects .features{
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(280px, 1fr));
-        gap: 2rem;
-        align-items: stretch; /* (TR) satırdaki tüm kartlar aynı yükseklikte esnesin */
-      }
-      /* (TR) Temanın article margin’larını sıfırla; grid boşluklarını biz yönetiyoruz */
-      #projects .features > article{ margin: 0 !important; }
+  /* ============================================================
+     PROJECTS — Dikey, modern kartlar (alt alta, simetrik)
+     Not: Temanın .features stilini ezip tek sütun yapıyoruz.
+  ============================================================*/
+    #projects .features{
+      display: grid !important;
+      grid-template-columns: 1fr;      /* tek sütun */
+      gap: 1.25rem;
+    }
+    #projects .features > article{ margin: 0 !important; }
 
-      @media (max-width: 980px){
-        #projects .features{ grid-template-columns: 1fr; }
-      }
+    .proj-card{
+      display: grid;
+      grid-template-columns: 56px 1fr auto; /* ikon | içerik | aksiyon */
+      gap: 1rem; align-items: start;
+      padding: 1.4rem 1.6rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .proj-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      background: rgba(255,255,255,0.06);
+    }
 
-      /* Kart iskeleti */
-      #projects .card{
-        display: flex;
-        flex-direction: column;
-        height: 100%;            /* (TR) grid hücresini tamamen doldur */
-        min-height: 360px;
-        padding: 1.8rem;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.03);
-      }
-      /* Üst kısım: ikon + başlık */
-      #projects .card-head{
-        display: flex;
-        align-items: center;
-        gap: .9rem;
-        margin-bottom: .75rem;
-      }
-      #projects .card-icon{ font-size: 2.2rem; line-height: 1; }
-      #projects .card-title{ margin: 0; }
-      /* Gövde esnesin, link her zaman alta insin */
-      #projects .card-body{ flex: 1; }
-      #projects .card .actions{ margin-top: 1rem; }
-    </style>
+    .proj-icon{
+      width: 56px; height: 56px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,0.08);
+    }
+    .proj-icon .icon{ font-size: 1.6rem; line-height: 1; }
+
+    .proj-body h3{ margin: .1rem 0 .35rem 0; }
+    .proj-body p{ margin: 0; opacity: .9; }
+
+    .proj-action{ align-self: center; }
+    .proj-action .special{ white-space: nowrap; }
+
+    @media (max-width: 640px){
+      .proj-card{ grid-template-columns: 44px 1fr; }
+      .proj-action{ grid-column: 2 / 3; margin-top: .6rem; }
+      .proj-icon{ width: 44px; height: 44px; }
+    }
+  </style>
+
   </head>
   <body class="is-preload">
 
@@ -206,86 +194,77 @@
           </div>
         </section>
 
-        <!-- PROJECTS (TR: Projeler) — Simetrik, ikonlu kartlar -->
-        <section id="projects" class="wrapper alt style1">
-          <div class="inner">
-            <h2 class="major">Projects</h2>
+        <!-- PROJECTS (TR: Projeler) — Dikey, modern kartlar -->
+<section id="projects" class="wrapper alt style1">
+  <div class="inner">
+    <h2 class="major">Projects</h2>
 
-            <section class="features">
-              <!-- Proje 1 -->
-              <article class="card">
-                <div class="card-head">
-                  <span class="icon solid fa-truck-loading card-icon" aria-hidden="true"></span>
-                  <h3 class="major card-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Project management, design for manufacturing, purchasing management, and software/material selection.
-                    ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.
-                  </p>
-                </div>
-                <ul class="actions">
-                  <li><a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view"
-                         target="_blank" rel="noopener noreferrer">Poster</a></li>
-                </ul>
-              </article>
+    <section class="features">
 
-              <!-- Proje 2 -->
-              <article class="card">
-                <div class="card-head">
-                  <span class="icon solid fa-robot card-icon" aria-hidden="true"></span>
-                  <h3 class="major card-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Mechanical design and software for Autonomous Forklift; overall team leadership.
-                    Qualified for the finals.
-                  </p>
-                </div>
-                <ul class="actions">
-                  <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-                         target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
-              </article>
+      <!-- Proje 1 -->
+      <article class="proj-card">
+        <div class="proj-icon">
+          <span class="icon solid fa-truck-loading" aria-hidden="true"></span>
+        </div>
+        <div class="proj-body">
+          <h3 class="major">Autonomous Forklift Prototype with Mecanum Wheels</h3>
+          <p>Project management, design for manufacturing, purchasing management, and software/material selection. ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.</p>
+        </div>
+        <div class="proj-action">
+          <a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view" target="_blank" rel="noopener noreferrer">Poster</a>
+        </div>
+      </article>
 
-              <!-- Proje 3 -->
-              <article class="card">
-                <div class="card-head">
-                  <span class="icon solid fa-route card-icon" aria-hidden="true"></span>
-                  <h3 class="major card-title">Motion Planning with Husky UGV</h3>
-                </div>
-                <div class="card-body">
-                  <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
-                </div>
-                <ul class="actions">
-                  <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-                         target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
-              </article>
+      <!-- Proje 2 -->
+      <article class="proj-card">
+        <div class="proj-icon">
+          <span class="icon solid fa-robot" aria-hidden="true"></span>
+        </div>
+        <div class="proj-body">
+          <h3 class="major">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
+          <p>Mechanical design and software for Autonomous Forklift; overall team leadership. Qualified for the finals.</p>
+        </div>
+        <div class="proj-action">
+          <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </article>
 
-              <!-- Proje 4 -->
-              <article class="card">
-                <div class="card-head">
-                  <span class="icon solid fa-rocket card-icon" aria-hidden="true"></span>
-                  <h3 class="major card-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.
-                  </p>
-                </div>
-                <ul class="actions">
-                  <li><a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-                         target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
-              </article>
-            </section>
+      <!-- Proje 3 -->
+      <article class="proj-card">
+        <div class="proj-icon">
+          <span class="icon solid fa-route" aria-hidden="true"></span>
+        </div>
+        <div class="proj-body">
+          <h3 class="major">Motion Planning with Husky UGV</h3>
+          <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
+        </div>
+        <div class="proj-action">
+          <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </article>
 
-            <ul class="actions" style="margin-top: 1rem;">
-              <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories</a></li>
-            </ul>
-          </div>
-        </section>
+      <!-- Proje 4 -->
+      <article class="proj-card">
+        <div class="proj-icon">
+          <span class="icon solid fa-rocket" aria-hidden="true"></span>
+        </div>
+        <div class="proj-body">
+          <h3 class="major">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
+          <p>Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.</p>
+        </div>
+        <div class="proj-action">
+          <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </article>
+
+    </section>
+
+    <ul class="actions" style="margin-top: 1rem;">
+      <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories</a></li>
+    </ul>
+  </div>
+</section>
+
 
       </section><!-- /#wrapper -->
 
