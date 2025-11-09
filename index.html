@@ -226,29 +226,54 @@
 
       </section><!-- /#wrapper -->
 
-      <!-- CONTACT (TR: İletişim) -->
-      <section id="contact">
-        <div class="inner">
-          <h2 class="major">Contact</h2>
-          <p>For collaboration, projects, or speaking opportunities, feel free to reach out.</p>
+      <!-- CONTACT (TR: İletişim Formu) -->
+<section id="contact">
+  <div class="inner" style="text-align: left;">
+    <h2 class="major">Get in Touch</h2>
+    <p>If you would like to contact me for collaborations, job opportunities, or project inquiries, feel free to send a message using the form below.</p>
 
-          <!-- TR: Basit iletişim bilgileri (formu istersen sonra Formspree/Netlify ile bağlarız) -->
-          <ul class="contact">
-            <li class="icon solid fa-home">
-              İzmir, Türkiye<br />
-              Remote &amp; Hybrid
-            </li>
-            <li class="icon solid fa-envelope"><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></li>
-            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener noreferrer">linkedin.com/in/berke-bilsev</a></li>
-            <li class="icon brands fa-github"><a href="https://github.com/berkebilsev" target="_blank" rel="noopener noreferrer">github.com/berkebilsev</a></li>
-          </ul>
+    <!-- ==========================
+         İLETİŞİM FORMU (Formspree)
+         ========================== -->
+    <form method="POST" action="https://formspree.io/f/mrgnyjaj">
+      <div class="fields">
 
-          <ul class="copyright">
-            <li>© 2025 Berke Bilsev</li>
-            <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a></li>
-          </ul>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" required />
         </div>
-      </section>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="5" required></textarea>
+        </div>
+
+      </div>
+
+      <ul class="actions">
+        <li><button type="submit" class="button primary">Send Message</button></li>
+      </ul>
+    </form>
+
+    <!-- İsteğe bağlı sosyal bağlantılar -->
+    <ul class="contact">
+      <li class="icon solid fa-envelope"><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></li>
+      <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank">linkedin.com/in/berke-bilsev</a></li>
+      <li class="icon brands fa-github"><a href="https://github.com/berkebilsev" target="_blank">github.com/berkebilsev</a></li>
+    </ul>
+
+    <ul class="copyright">
+      <li>© 2025 Berke Bilsev</li>
+      <li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+    </ul>
+  </div>
+</section>
+
 
     </div><!-- /#page-wrapper -->
 
