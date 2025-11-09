@@ -226,53 +226,88 @@
 
       </section><!-- /#wrapper -->
 
-      <!-- CONTACT (TR: İletişim Formu) -->
+      <!-- CONTACT (TR: İki sütunlu iletişim bölümü) -->
 <section id="contact">
   <div class="inner" style="text-align: left;">
+
     <h2 class="major">Get in Touch</h2>
     <p>If you would like to contact me for collaborations, job opportunities, or project inquiries, feel free to send a message using the form below.</p>
 
-    <!-- ==========================
-         İLETİŞİM FORMU (Formspree)
-         ========================== -->
-    <form method="POST" action="https://formspree.io/f/mrgnyjaj">
-      <div class="fields">
+    <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
 
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" required />
-        </div>
+      <!-- SOL SÜTUN — FORM -->
+      <div style="flex: 1; min-width: 280px;">
 
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" id="email" required />
-        </div>
+        <form method="POST" action="https://formspree.io/f/mrgnyjaj">
+          <div class="fields">
 
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea name="message" id="message" rows="5" required></textarea>
-        </div>
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="6" required></textarea>
+            </div>
+
+          </div>
+
+          <ul class="actions">
+            <li><button type="submit" class="button primary">Send Message</button></li>
+          </ul>
+        </form>
 
       </div>
 
-      <ul class="actions">
-        <li><button type="submit" class="button primary">Send Message</button></li>
-      </ul>
-    </form>
+      <!-- AYIRICI ÇİZGİ (Desktop için) -->
+      <div style="width: 1px; background: rgba(255,255,255,0.15); min-height: 350px;"
+           class="hide-on-mobile"></div>
 
-    <!-- İsteğe bağlı sosyal bağlantılar -->
-    <ul class="contact">
-      <li class="icon solid fa-envelope"><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></li>
-      <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank">linkedin.com/in/berke-bilsev</a></li>
-      <li class="icon brands fa-github"><a href="https://github.com/berkebilsev" target="_blank">github.com/berkebilsev</a></li>
-    </ul>
+      <!-- SAĞ SÜTUN — SOSYAL / KONUM / MAİL -->
+      <div style="flex: 1; min-width: 250px;">
+        <h3 class="major">Contact Info</h3>
+
+        <p><strong>Location</strong><br> İzmir, Türkiye<br> Remote & Hybrid</p>
+
+        <p><strong>Email</strong><br>
+        <a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></p>
+
+        <p><strong>GitHub</strong><br>
+        <a href="https://github.com/berkebilsev" target="_blank" rel="noopener noreferrer">
+          github.com/berkebilsev
+        </a></p>
+
+        <p><strong>LinkedIn</strong><br>
+        <a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener noreferrer">
+          linkedin.com/in/berke-bilsev
+        </a></p>
+      </div>
+
+    </div>
 
     <ul class="copyright">
       <li>© 2025 Berke Bilsev</li>
       <li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
     </ul>
+
   </div>
 </section>
+
+<!-- (TR) Mobil görünümde orta çizgiyi gizlemek için küçük CSS -->
+<style>
+  @media (max-width: 800px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+  }
+</style>
+
 
 
     </div><!-- /#page-wrapper -->
