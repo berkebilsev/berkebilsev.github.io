@@ -3,161 +3,156 @@
   Solid State by HTML5 UP (CC BY 3.0)
   html5up.net | @ajlkn
 -->
-<html lang="tr">
+<html lang="en">
   <head>
-    <title>Berke Bilsev — Portfolio</title>
     <meta charset="utf-8" />
-    <meta name="description" content="Mechatronics Engineer | MBA">
+    <title>Berke Bilsev — Portfolio</title>
+    <meta name="description" content="Mechatronics Engineer | MBA" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-<style>
-  /* Üstte yatay menü için basit düzen */
-  #header .topnav { display: block; }
-  #header .topnav .links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; align-items: center; }
-  #header .topnav .links li { margin: 0; }
-  #header .topnav .links a { text-decoration: none; }
-  /* Eski hamburger tetikleyiciyi gizlemek için */
-  #header nav a[href="#menu"] { display: none !important; }
-  @media (max-width: 980px) {
-    #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
-  }
-  html { scroll-behavior: smooth; }
-</style>
-
+    <style>
+      /* Inline top navigation (no hamburger) */
+      #header .topnav { display: block; }
+      #header .topnav .links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; align-items: center; }
+      #header .topnav .links li { margin: 0; }
+      #header .topnav .links a { text-decoration: none; }
+      /* Completely hide the old hamburger trigger if any */
+      #header nav a[href="#menu"] { display: none !important; }
+      /* Smooth scroll between sections */
+      html { scroll-behavior: smooth; }
+      /* Wrap on small screens */
+      @media (max-width: 980px) {
+        #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+      }
+    </style>
   </head>
   <body class="is-preload">
 
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
+      <!-- Header -->
       <header id="header" class="alt">
-  <h1><a href="#banner">Berke Bilsev</a></h1>
-  <nav class="topnav">
-    <ul class="links">
-      <li><a href="#banner">Giriş</a></li>
-      <li><a href="#one">Hakkımda</a></li>
-      <li><a href="#two">Odak Alanları</a></li>
-      <li><a href="#three">Deneyim</a></li>
-      <li><a href="#four">Projeler</a></li>
-      <li><a href="#footer">İletişim</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-      <!-- Menu -->
-        <div class="inner">
-          <h2>Menü</h2>
+        <h1><a href="#about">Berke Bilsev</a></h1>
+        <nav class="topnav">
           <ul class="links">
-            <li><a href="#banner">Giriş</a></li>
-            <li><a href="#one">Hakkımda</a></li>
-            <li><a href="#four">Projeler</a></li>
-            <li><a href="#footer">İletişim</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-          <a href="#" class="close">Kapat</a>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-      <!-- Banner -->
-      <section id="banner">
-        <div class="inner">
-          <div class="logo"><span class="icon fa-gem"></span></div>
-          <h2>Berke Bilsev</h2>
-          <p>Mechatronics Engineer · Systems & Control · ROS · MATLAB · Python · MBA</p>
-        </div>
-      </section>
-
-      <!-- Wrapper -->
+      <!-- Wrapper (no banner) -->
       <section id="wrapper">
 
-        <!-- One: Hakkımda -->
-        <section id="one" class="wrapper spotlight style1">
+        <!-- About Me -->
+        <section id="about" class="wrapper spotlight style1">
           <div class="inner">
-            <a href="#" class="image"><img src="images/pic01.jpg" alt="Berke Bilsev" /></a>
+            <a href="#" class="image"><img src="images/pic01.jpg" alt="Profile photo" /></a>
             <div class="content">
-              <h2 class="major">Hakkımda</h2>
-              <p>İzmir Ekonomi Üniversitesi Mekatronik Mühendisliği bölümünden bölüm birincisi olarak mezun oldum. Phinia/Delphi’de ray montaj &amp; test süreçlerinde fixture/makine gereksinimleri, tedarik ve devreye alma üzerine çalışıyorum. ROS, MATLAB, Python ve kontrol sistemleri odağındayım; eş zamanlı e-MBA yapıyorum. Hedefim MBSE/SysML ile sistem mühendisliğine geçiş ve otonom sistemler projeleri.</p>
-              <a href="https://www.linkedin.com/in/berkebilsev" class="special" target="_blank" rel="noopener">LinkedIn</a>
+              <h2 class="major">About Me</h2>
+              <p>
+                I’m a Mechatronics Engineer from İzmir University of Economics (graduated top of class).
+                I work on common-rail assembly & test processes at Phinia/Delphi: defining fixture/machine
+                requirements, supplier coordination, commissioning, and documentation. My focus areas are
+                Systems & Control, Embedded/ROS, and test automation. I’m also pursuing an e-MBA.
+              </p>
+              <p>
+                Current interests: MBSE/SysML, requirements traceability, and autonomous systems in supply chains.
+              </p>
+              <a class="special" href="https://www.linkedin.com/in/berkebilsev" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
         </section>
 
-        <!-- Two: Odak Alanları -->
-        <section id="two" class="wrapper alt spotlight style2">
+        <!-- Experience -->
+        <section id="experience" class="wrapper alt spotlight style2">
           <div class="inner">
-            <a href="#" class="image"><img src="images/pic02.jpg" alt="Odak Alanları" /></a>
+            <a href="#" class="image"><img src="images/pic02.jpg" alt="Experience" /></a>
             <div class="content">
-              <h2 class="major">Odak Alanları</h2>
-              <p>Kontrol sistemleri, gömülü sistemler, ROS tabanlı robotik, izlenebilirlik ve test otomasyonu. Üretim hatlarında Poka-Yoke, DataMatrix, tork/açı programları ve proses doğrulama.</p>
-              <a href="https://github.com/berkebilsev" class="special" target="_blank" rel="noopener">GitHub Profilim</a>
+              <h2 class="major">Experience</h2>
+              <ul>
+                <li><strong>Process / Assembly & Test Engineer — Phinia (Delphi)</strong><br/>
+                  Fixture design & procurement, sensor integration, Poka-Yoke, DataMatrix traceability, torque/angle programs, and ramp-up for A/B/Gamma samples.</li>
+                <li><strong>Supplier coordination</strong> for new slots, cylinders, software updates; writing technical requirements and QMS-compliant documentation.</li>
+                <li><strong>Data-driven improvements</strong> on benches and rails (audit fixtures, booster pressure, alignment, guide rails, etc.).</li>
+              </ul>
+              <a class="special" href="#projects">See Projects</a>
             </div>
           </div>
         </section>
 
-        <!-- Three: Deneyim / MBA -->
-        <section id="three" class="wrapper spotlight style3">
+        <!-- Education -->
+        <section id="education" class="wrapper spotlight style3">
           <div class="inner">
-            <a href="#" class="image"><img src="images/pic03.jpg" alt="Deneyim ve Eğitim" /></a>
+            <a href="#" class="image"><img src="images/pic03.jpg" alt="Education" /></a>
             <div class="content">
-              <h2 class="major">Deneyim &amp; Eğitim</h2>
-              <p>Phinia/Delphi’de süreç geliştirme; tedarikçilerle teknik gereksinim yönetimi; test fikstürleri, silindir/boost sistemleri ve yazılım güncellemeleri. e-MBA kapsamında pazarlama, organizasyonel dinamikler, finansal analiz ve operasyon yönetimi dersleri.</p>
-              <a href="#four" class="special">Projeleri Gör</a>
+              <h2 class="major">Education</h2>
+              <ul>
+                <li><strong>B.Sc. Mechatronics Engineering</strong> — İzmir University of Economics (Top Graduate)</li>
+                <li><strong>e-MBA (Non-thesis)</strong> — İzmir University of Economics<br/>
+                  Courses: Marketing, Organizational Dynamics, Financial Analysis/Auditing, Tech & Operations Mgmt.</li>
+              </ul>
+              <p><em>Currently exploring:</em> MBSE/SysML, INCOSE best practices, model-based requirements.</p>
             </div>
           </div>
         </section>
 
-        <!-- Four: Projeler -->
-        <section id="four" class="wrapper alt style1">
+        <!-- Projects -->
+        <section id="projects" class="wrapper alt style1">
           <div class="inner">
-            <h2 class="major">Projeler</h2>
-            <p>Öne çıkan çalışmalarım.</p>
+            <h2 class="major">Projects</h2>
+            <p>A selection of work and study projects.</p>
             <section class="features">
               <article>
-                <a href="#" class="image"><img src="images/pic04.jpg" alt="Common-Rail Fixture" /></a>
+                <a href="#" class="image"><img src="images/pic04.jpg" alt="Common-Rail Fixture Optimization" /></a>
                 <h3 class="major">Common-Rail Test Fixture Optimization</h3>
-                <p>Ray montaj &amp; test hattında fixture/makine gereksinimleri, devreye alma ve proses iyileştirme.</p>
-                <a href="https://github.com/berkebilsev" class="special" target="_blank" rel="noopener">GitHub</a>
+                <p>Process specs, commissioning, and continuous improvement for assembly & test lines.</p>
+                <a class="special" href="https://github.com/berkebilsev" target="_blank" rel="noopener">GitHub</a>
               </article>
               <article>
-                <a href="#" class="image"><img src="images/pic05.jpg" alt="ROS" /></a>
-                <h3 class="major">ROS Tabanlı Gömülü Sistem</h3>
-                <p>Sensör entegrasyonu, Poka-Yoke, DataMatrix izlenebilirlik ve test otomasyonu.</p>
-                <a href="https://github.com/berkebilsev" class="special" target="_blank" rel="noopener">Repo</a>
+                <a href="#" class="image"><img src="images/pic05.jpg" alt="ROS Embedded" /></a>
+                <h3 class="major">ROS-Based Embedded System</h3>
+                <p>Sensor integration, Poka-Yoke, DataMatrix traceability, and automated test routines.</p>
+                <a class="special" href="https://github.com/berkebilsev" target="_blank" rel="noopener">Repository</a>
               </article>
               <article>
-                <a href="#" class="image"><img src="images/pic06.jpg" alt="AR MBA" /></a>
-                <h3 class="major">AR ile Deneyimsel Pazarlama (MBA)</h3>
-                <p>AR’ın müşteri deneyimine etkisi; vaka analizi ve görselleştirme.</p>
-                <a href="#" class="special" target="_blank" rel="noopener">Sunum</a>
+                <a href="#" class="image"><img src="images/pic06.jpg" alt="AR Marketing (MBA)" /></a>
+                <h3 class="major">AR Experiential Marketing (MBA)</h3>
+                <p>Impact of AR on customer experience; case studies and data visualization.</p>
+                <a class="special" href="#" target="_blank" rel="noopener">Slides</a>
               </article>
               <article>
-                <a href="#" class="image"><img src="images/pic07.jpg" alt="MBSE" /></a>
-                <h3 class="major">MBSE / SysML Öğrenme Yolculuğu</h3>
-                <p>Gereksinim yönetimi, modelleme ve izlenebilirlik üzerine notlar ve minik demolar.</p>
-                <a href="#" class="special" target="_blank" rel="noopener">Notlar</a>
+                <a href="#" class="image"><img src="images/pic07.jpg" alt="MBSE Notes" /></a>
+                <h3 class="major">MBSE / SysML Notes</h3>
+                <p>Modeling, requirements, and traceability mini-demos; learning roadmap.</p>
+                <a class="special" href="#" target="_blank" rel="noopener">Notes</a>
               </article>
             </section>
             <ul class="actions">
-              <li><a href="https://github.com/berkebilsev?tab=repositories" class="button" target="_blank" rel="noopener">Tüm Projeler</a></li>
+              <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
             </ul>
           </div>
         </section>
 
       </section>
 
-      <!-- Footer / İletişim -->
-      <section id="footer">
+      <!-- Contact (Footer) -->
+      <section id="contact">
         <div class="inner">
-          <h2 class="major">İletişim</h2>
-          <p>İş birlikleri, projeler ve konuşmalar için benimle iletişime geçebilirsin.</p>
+          <h2 class="major">Contact</h2>
+          <p>For collaboration, projects, or speaking opportunities, feel free to reach out.</p>
 
-          <!-- Basit mailto form yerine doğrudan linkler; formu istersen sonra Formspree ile bağlarız -->
+          <!-- Simple contact info (form can be wired later with Formspree/Netlify Forms) -->
           <ul class="contact">
             <li class="icon solid fa-home">
               İzmir, Türkiye<br />
-              Uzaktan &amp; Hibrit çalışma
+              Remote & Hybrid
             </li>
             <li class="icon solid fa-envelope"><a href="mailto:berke@ornekmail.com">berke@ornekmail.com</a></li>
             <li class="icon brands fa-github"><a href="https://github.com/berkebilsev" target="_blank" rel="noopener">github.com/berkebilsev</a></li>
@@ -166,14 +161,14 @@
 
           <ul class="copyright">
             <li>© 2025 Berke Bilsev</li>
-            <li>Tasarım: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
+            <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
           </ul>
         </div>
       </section>
 
     </div>
 
-    <!-- Scripts (temanın orijinal JS dosyaları) -->
+    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
