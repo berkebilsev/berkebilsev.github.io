@@ -46,53 +46,57 @@
         display: flex !important;
         flex-direction: column; gap: 1.5rem;
       }
-      #projects .features > article{ margin: 0 !important; }
-
-      /* Kart: sol(ikon+başlık) | çizgi | sağ(içerik+buton) */
-      .proj-card{
-        display: grid;
-        grid-template-columns: 64px 1px 1fr;
-        gap: 1.5rem;
-        padding: 1.8rem;
-        background: rgba(255,255,255,.04);
-        border-radius: 12px;
-        transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      #projects .features{
+        display: grid !important;
+        grid-template-columns: 1fr;      /* tek sütun, başlık çizgisi kadar */
+        gap: 1.25rem;
+      }
+      #projects .features > article{
+        width: 100% !important;          /* temanın %45/%50 genişliğini sıfırla */
+        margin: 0 !important;
         box-sizing: border-box;
+      }
+
+      /* Kart gövdesi */
+      .proj-card{
         width: 100%;
+        display: grid;
+        grid-template-columns: 64px 1fr auto; /* ikon | içerik | aksiyon */
+        gap: 1rem;
+        align-items: start;
+        padding: 1.4rem 1.6rem;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+        transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
       }
       .proj-card:hover{
         transform: translateY(-2px);
-        background: rgba(255,255,255,.065);
         box-shadow: 0 8px 24px rgba(0,0,0,.25);
+        background: rgba(255,255,255,0.06);
       }
 
-      /* Sol blok */
-      .proj-left{ display: flex; flex-direction: column; gap: .6rem; }
+      /* İkon rozeti */
       .proj-icon{
-        width: 56px; height: 56px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        background: rgba(255,255,255,.08); font-size: 1.7rem;
+        width: 64px; height: 64px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: rgba(255,255,255,0.08);
       }
-      .proj-title{ margin: 0; }
+      .proj-icon .icon{ font-size: 1.7rem; line-height: 1; }
 
-      /* Dikey ayraç */
-      .proj-divider{ width: 1px; background: rgba(255,255,255,.20); }
-
-      /* Sağ blok */
-      .proj-right{ display: flex; flex-direction: column; }
-      .proj-right p{ margin: 0 0 .8rem 0; opacity: .9; }
-      .proj-action{ margin-top: .2rem; }
+      /* İçerik ve aksiyon */
+      .proj-body h3{ margin: .1rem 0 .4rem 0; }
+      .proj-body p{ margin: 0; opacity: .9; }
+      .proj-action{ align-self: center; }
       .proj-action .special{ white-space: nowrap; }
 
-      /* Mobilde tek kolon */
-      @media (max-width: 780px){
-        .proj-card{ grid-template-columns: 1fr; gap: 1rem; }
-        .proj-divider{ display: none; }
+      /* Küçük ekran düzeni */
+      @media (max-width: 640px){
+        .proj-card{ grid-template-columns: 48px 1fr; }
+        .proj-action{ grid-column: 2 / 3; margin-top: .6rem; justify-self: start; }
+        .proj-icon{ width: 48px; height: 48px; }
       }
-
-      /* Contact orta çizgisini mobile gizle */
-      @media (max-width: 800px){ .hide-on-mobile{ display: none !important; } }
     </style>
+
   </head>
 
   <body class="is-preload">
