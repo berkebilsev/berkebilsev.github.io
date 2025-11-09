@@ -16,9 +16,7 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
-      /* ------------------------------------------------------------
-         ÜST MENÜ (hamburgersiz, düz ve yapışkan)
-      -------------------------------------------------------------*/
+      /* =================== ÜST MENÜ =================== */
       #header .topnav { display: block; }
       #header .topnav .links {
         list-style: none; margin: 0; padding: 0;
@@ -26,121 +24,81 @@
       }
       #header .topnav .links li { margin: 0; }
       #header .topnav .links a { text-decoration: none; }
+      #header nav a[href="#menu"] { display: none !important; } /* hamburger kapat */
 
-      /* Hamburger menüyü gizle (temayı ezer) */
-      #header nav a[href="#menu"] { display: none !important; }
-
-      /* Sticky header */
       #header {
         position: sticky; top: 0; z-index: 1000;
         backdrop-filter: saturate(120%) blur(6px);
-        background: rgba(20, 20, 25, 0.65);
+        background: rgba(20,20,25,.65);
       }
-
-      /* Aktif link vurgusu */
       #header .topnav .links a.active {
         border-bottom: 2px solid #6cc091; padding-bottom: 2px;
       }
-
-      /* Küçük ekranlarda menü kaynaşsın */
-      @media (max-width: 980px) {
+      @media (max-width: 980px){
         #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
       }
 
-      /* Yumuşak kaydırma */
       html { scroll-behavior: smooth; }
 
-      /* ------------------------------------------------------------
-         PROJECTS — Tam genişlik, alt alta modern kartlar
-         - article genişliğini 100% yap
-         - Kart 3 kolon grid: [ikon | içerik | aksiyon]
-      -------------------------------------------------------------*/
-      #projects .features {
- 	 display: flex !important;
-	 flex-direction: column;
- 	 gap: 1.5rem;
-	}
+      /* =============== PROJECTS — kart düzeni =============== */
+      /* liste tek sütun, temanın article marginlerini sıfırla */
+      #projects .features{
+        display: flex !important;
+        flex-direction: column; gap: 1.5rem;
+      }
+      #projects .features > article{ margin: 0 !important; }
 
-	/* Varsayılan article marginlerini kapat */
-	#projects .features > article {
-	  margin: 0 !important;
-	}
+      /* Kart: sol(ikon+başlık) | çizgi | sağ(içerik+buton) */
+      .proj-card{
+        display: grid;
+        grid-template-columns: 260px 1px 1fr;
+        gap: 1.5rem;
+        padding: 1.8rem;
+        background: rgba(255,255,255,.04);
+        border-radius: 12px;
+        transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      .proj-card:hover{
+        transform: translateY(-2px);
+        background: rgba(255,255,255,.065);
+        box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      }
 
-	/* Kart (sol blok + çizgi + içerik) */
-	.proj-card {
- 	 display: grid;
-	 grid-template-columns: 260px 1px 1fr;   /* sol blok | çizgi | sağ blok */
- 	 gap: 1.5rem;
- 	 padding: 1.8rem;
- 	 background: rgba(255,255,255,0.04);
- 	 border-radius: 12px;
- 	 transition: 0.2s ease;
-	}
+      /* Sol blok */
+      .proj-left{ display: flex; flex-direction: column; gap: .6rem; }
+      .proj-icon{
+        width: 56px; height: 56px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(255,255,255,.08); font-size: 1.7rem;
+      }
+      .proj-title{ margin: 0; }
 
-	.proj-card:hover {
- 	 background: rgba(255,255,255,0.065);
-	 transform: translateY(-2px);
-	}
+      /* Dikey ayraç */
+      .proj-divider{ width: 1px; background: rgba(255,255,255,.20); }
 
-	/* Sol bölüm (ikon + başlık) */
-	.proj-left {
-	  display: flex;
-	  flex-direction: column;
- 	  gap: 0.6rem;
-	}
+      /* Sağ blok */
+      .proj-right{ display: flex; flex-direction: column; }
+      .proj-right p{ margin: 0 0 .8rem 0; opacity: .9; }
+      .proj-action{ margin-top: .2rem; }
+      .proj-action .special{ white-space: nowrap; }
 
-	.proj-icon {
- 	 width: 56px;
- 	 height: 56px;
- 	 border-radius: 50%;
- 	 display: flex;
- 	 align-items: center;
- 	 justify-content: center;
- 	 background: rgba(255,255,255,0.08);
- 	 font-size: 1.7rem;
-	}
+      /* Mobilde tek kolon */
+      @media (max-width: 780px){
+        .proj-card{ grid-template-columns: 1fr; gap: 1rem; }
+        .proj-divider{ display: none; }
+      }
 
-	.proj-title {
-	  margin: 0;
-	}
-
-	/* Dikey çizgi */
-	.proj-divider {
-	  background: rgba(255,255,255,0.2);
-	  width: 1px;
-	}
-
-	/* Sağ bölüm (içerik + buton) */
-	.proj-right p {
-	  margin: 0 0 0.6rem 0;
-	  opacity: .9;
-	}
-
-	.proj-action {
-	  margin-top: 0.8rem;
-	}
-
-	/* Mobil uyum */
-	@media (max-width: 780px) {
-  	.proj-card {
-    	grid-template-columns: 1fr;
-    	gap: 1rem;
- 	 }
-  	.proj-divider {
-    	display: none;
- 	 }
-	}
+      /* Contact orta çizgisini mobile gizle */
+      @media (max-width: 800px){ .hide-on-mobile{ display: none !important; } }
     </style>
-
   </head>
-  <body class="is-preload">
 
-    <!-- Sayfa Kapsayıcı -->
+  <body class="is-preload">
     <div id="page-wrapper">
 
-      <!-- =========================================================
-           HEADER (TR: Üst kısım - düz menü)
-      ========================================================== -->
+      <!-- =================== HEADER =================== -->
       <header id="header" class="alt">
         <h1><a href="#banner">Berke Bilsev</a></h1>
         <nav class="topnav" aria-label="Primary">
@@ -155,9 +113,7 @@
         </nav>
       </header>
 
-      <!-- =========================================================
-           INTRO (TR: Giriş/banner bölümü)
-      ========================================================== -->
+      <!-- =================== BANNER =================== -->
       <section id="banner">
         <div class="inner">
           <h2>Hi, I'm Berke Bilsev</h2>
@@ -165,16 +121,14 @@
         </div>
       </section>
 
-      <!-- =========================================================
-           WRAPPER (TR: İçerik bölümleri)
-      ========================================================== -->
+      <!-- =================== WRAPPER =================== -->
       <section id="wrapper">
 
-        <!-- ABOUT ME (TR: Hakkımda) -->
+        <!-- ABOUT -->
         <section id="about" class="wrapper spotlight style1">
           <div class="inner">
             <a href="#" class="image"><img src="https://github.com/berkebilsev.png" alt="Profile photo" /></a>
-            <div class="content" style="text-align: left;">
+            <div class="content" style="text-align:left;">
               <h2 class="major">About Me</h2>
               <p>
                 As an ambitious and imaginative mechatronics engineer, I possess a strong foundation in problem-solving and analytical thinking.
@@ -189,7 +143,7 @@
           </div>
         </section>
 
-        <!-- EXPERIENCE (TR: Deneyim) -->
+        <!-- EXPERIENCE -->
         <section id="experience" class="wrapper alt spotlight style2">
           <div class="inner">
             <a href="#" class="image"><img src="https://media.licdn.com/dms/image/v2/D4D05AQHnCjkJ7qvXhA/videocover-low/B4DZfqDm54G8CE-/0/1751978979571?e=2147483647&v=beta&t=RjNEktUxSdYwZr8n1rw-Gzew8V63lR4aklfPZiTIuL0" alt="Experience" /></a>
@@ -208,148 +162,107 @@
           </div>
         </section>
 
-        <!-- EDUCATION (TR: Eğitim) -->
+        <!-- EDUCATION -->
         <section id="education" class="wrapper spotlight style3">
           <div class="inner">
             <a href="#" class="image"><img src="https://img-s3.onedio.com/id-5d31eafb273e1ef64c3dd8a8/rev-0/w-1200/h-672/f-jpg/s-a474a64f00eeedeef681948f87029e8267aff17d.jpg" alt="Education" /></a>
-
-            <!-- (TR) Eğitim yazıları sola hizalı -->
-            <div class="content" style="text-align: left;">
+            <div class="content" style="text-align:left;">
               <h2 class="major">Education</h2>
-
               <ul>
                 <li><strong>e-MBA, Business Administration</strong> — İzmir University of Economics</li>
                 <li><strong>B.Sc. Mechatronics Engineering</strong> — İzmir University of Economics (Graduated as a top-ranking student)</li>
               </ul>
-
-              <p>
-                <a class="special" href="https://mezun.ieu.edu.tr/tr/mezunlar/type/read/id/319"
-                   target="_blank" rel="noopener noreferrer">More</a>
-              </p>
+              <p><a class="special" href="https://mezun.ieu.edu.tr/tr/mezunlar/type/read/id/319" target="_blank" rel="noopener noreferrer">More</a></p>
             </div>
           </div>
         </section>
 
-        <!-- PROJECTS -->
-<section id="projects" class="wrapper alt style1">
-  <div class="inner">
+        <!-- =================== PROJECTS =================== -->
+        <section id="projects" class="wrapper alt style1">
+          <div class="inner">
+            <h2 class="major">Projects</h2>
 
-    <h2 class="major">Projects</h2>
+            <section class="features">
 
-    <section class="features">
+              <!-- Proje 1 -->
+              <article class="proj-card">
+                <div class="proj-left">
+                  <div class="proj-icon"><span class="icon solid fa-truck-loading" aria-hidden="true"></span></div>
+                  <h3 class="major proj-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
+                </div>
+                <div class="proj-divider"></div>
+                <div class="proj-right">
+                  <p>Project management, design for manufacturing, purchasing management, and software/material selection. ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.</p>
+                  <div class="proj-action">
+                    <a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view" target="_blank" rel="noopener">Poster</a>
+                  </div>
+                </div>
+              </article>
 
-      <!-- PROJE 1 -->
-      <article class="proj-card">
+              <!-- Proje 2 -->
+              <article class="proj-card">
+                <div class="proj-left">
+                  <div class="proj-icon"><span class="icon solid fa-robot" aria-hidden="true"></span></div>
+                  <h3 class="major proj-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
+                </div>
+                <div class="proj-divider"></div>
+                <div class="proj-right">
+                  <p>Mechanical design and software for Autonomous Forklift; overall team leadership. Qualified for the finals.</p>
+                  <div class="proj-action">
+                    <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                </div>
+              </article>
 
-        <div class="proj-left">
-          <div class="proj-icon"><span class="icon solid fa-truck-loading"></span></div>
-          <h3 class="major proj-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
-        </div>
+              <!-- Proje 3 -->
+              <article class="proj-card">
+                <div class="proj-left">
+                  <div class="proj-icon"><span class="icon solid fa-route" aria-hidden="true"></span></div>
+                  <h3 class="major proj-title">Motion Planning with Husky UGV</h3>
+                </div>
+                <div class="proj-divider"></div>
+                <div class="proj-right">
+                  <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
+                  <div class="proj-action">
+                    <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                </div>
+              </article>
 
-        <div class="proj-divider"></div>
+              <!-- Proje 4 -->
+              <article class="proj-card">
+                <div class="proj-left">
+                  <div class="proj-icon"><span class="icon solid fa-rocket" aria-hidden="true"></span></div>
+                  <h3 class="major proj-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
+                </div>
+                <div class="proj-divider"></div>
+                <div class="proj-right">
+                  <p>Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.</p>
+                  <div class="proj-action">
+                    <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                </div>
+              </article>
 
-        <div class="proj-right">
-          <p>
-            Project management, design for manufacturing, purchasing management,
-            and software/material selection. ROS on Raspberry Pi for LiDAR & DC encoder mapping.
-          </p>
-          <div class="proj-action">
-            <a href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view"
-               class="special" target="_blank">Poster</a>
+            </section>
+
+            <ul class="actions" style="margin-top:1rem;">
+              <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
+            </ul>
           </div>
-        </div>
-
-      </article>
-
-      <!-- PROJE 2 -->
-      <article class="proj-card">
-
-        <div class="proj-left">
-          <div class="proj-icon"><span class="icon solid fa-robot"></span></div>
-          <h3 class="major proj-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
-        </div>
-
-        <div class="proj-divider"></div>
-
-        <div class="proj-right">
-          <p>
-            Mechanical design and software for Autonomous Forklift;
-            overall team leadership. Qualified for the finals.
-          </p>
-          <div class="proj-action">
-            <a href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-               class="special" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-
-      </article>
-
-      <!-- PROJE 3 -->
-      <article class="proj-card">
-
-        <div class="proj-left">
-          <div class="proj-icon"><span class="icon solid fa-route"></span></div>
-          <h3 class="major proj-title">Motion Planning with Husky UGV</h3>
-        </div>
-
-        <div class="proj-divider"></div>
-
-        <div class="proj-right">
-          <p>
-            Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.
-          </p>
-          <div class="proj-action">
-            <a href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-               class="special" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-
-      </article>
-
-      <!-- PROJE 4 -->
-      <article class="proj-card">
-
-        <div class="proj-left">
-          <div class="proj-icon"><span class="icon solid fa-rocket"></span></div>
-          <h3 class="major proj-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
-        </div>
-
-        <div class="proj-divider"></div>
-
-        <div class="proj-right">
-          <p>
-            Avionics software, PCB for Arduino, rocket mechanics & design with Fusion 360 & OpenRocket.
-          </p>
-          <div class="proj-action">
-            <a href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
-               class="special" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-
-      </article>
-
-    </section>
-
-    <ul class="actions" style="margin-top: 1rem;">
-      <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories</a></li>
-    </ul>
-  </div>
-</section>
-
+        </section>
 
       </section><!-- /#wrapper -->
 
-      <!-- CONTACT (TR: İki sütunlu iletişim bölümü) -->
+      <!-- =================== CONTACT =================== -->
       <section id="contact">
-        <div class="inner" style="text-align: left; padding-left: 2rem; padding-right: 2rem;">
-
-          <h2 class="major" style="margin-left: 0.5rem;">Get in Touch</h2>
+        <div class="inner" style="text-align:left; padding-left:2rem; padding-right:2rem;">
+          <h2 class="major" style="margin-left:.5rem;">Get in Touch</h2>
           <p>If you would like to contact me for collaborations, job opportunities, or project inquiries, feel free to send a message using the form below.</p>
 
-          <div style="display: flex; gap: 3rem; flex-wrap: wrap; padding-top: 1rem;">
-
-            <!-- SOL SÜTUN — FORM -->
-            <div style="flex: 1; min-width: 280px; padding-left: 0.5rem;">
+          <div style="display:flex; gap:3rem; flex-wrap:wrap; padding-top:1rem;">
+            <!-- form -->
+            <div style="flex:1; min-width:280px; padding-left:.5rem;">
               <form method="POST" action="https://formspree.io/f/mrgnyjaj">
                 <div class="fields">
                   <div class="field">
@@ -365,58 +278,32 @@
                     <textarea name="message" id="message" rows="6" required></textarea>
                   </div>
                 </div>
-                <ul class="actions">
-                  <li><button type="submit" class="button primary">Send Message</button></li>
-                </ul>
+                <ul class="actions"><li><button type="submit" class="button primary">Send Message</button></li></ul>
               </form>
             </div>
 
-            <!-- AYIRICI ÇİZGİ (Desktop için) -->
-            <div style="width: 1px; background: rgba(255,255,255,0.15); min-height: 350px;" class="hide-on-mobile"></div>
+            <!-- divider -->
+            <div class="hide-on-mobile" style="width:1px; background:rgba(255,255,255,.15); min-height:350px;"></div>
 
-            <!-- SAĞ SÜTUN — CONTACT INFO + İKONLAR -->
-            <div style="flex: 1; min-width: 250px; padding-left: 0.5rem;">
-              <h3 class="major" style="margin-bottom: 1.2rem;">Contact Info</h3>
-
-              <p>
-                <strong><i class="icon solid fa-map-marker-alt"></i> Location</strong><br>
-                İzmir, Türkiye
-              </p>
-
-              <p>
-                <strong><i class="icon solid fa-envelope"></i> Email</strong><br>
-                <a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a>
-              </p>
-
-              <p>
-                <strong><i class="icon brands fa-github"></i> GitHub</strong><br>
-                <a href="https://github.com/berkebilsev" target="_blank" rel="noopener noreferrer">github.com/berkebilsev</a>
-              </p>
-
-              <p>
-                <strong><i class="icon brands fa-linkedin"></i> LinkedIn</strong><br>
-                <a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener noreferrer">linkedin.com/in/berke-bilsev</a>
-              </p>
+            <!-- info -->
+            <div style="flex:1; min-width:250px; padding-left:.5rem;">
+              <h3 class="major" style="margin-bottom:1.2rem;">Contact Info</h3>
+              <p><strong><i class="icon solid fa-map-marker-alt"></i> Location</strong><br>İzmir, Türkiye</p>
+              <p><strong><i class="icon solid fa-envelope"></i> Email</strong><br><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></p>
+              <p><strong><i class="icon brands fa-github"></i> GitHub</strong><br><a href="https://github.com/berkebilsev" target="_blank" rel="noopener">github.com/berkebilsev</a></p>
+              <p><strong><i class="icon brands fa-linkedin"></i> LinkedIn</strong><br><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener">linkedin.com/in/berke-bilsev</a></p>
             </div>
           </div>
 
           <ul class="copyright">
             <li>© 2025 Berke Bilsev</li>
-            <li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
           </ul>
         </div>
       </section>
-
-      <!-- (TR) Mobil görünümde orta çizgiyi gizlemek için küçük CSS -->
-      <style>
-        @media (max-width: 800px) {
-          .hide-on-mobile { display: none !important; }
-        }
-      </style>
-
     </div><!-- /#page-wrapper -->
 
-    <!-- Scripts (TR: Temanın JS dosyaları; silmeyin) -->
+    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
@@ -424,13 +311,11 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- =========================================================
-         (TR) Aktif bölümde ilgili menü öğesini vurgulayan küçük JS
-    ========================================================== -->
+    <!-- Aktif menü vurgusu -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const sections = ['banner','about','experience','education','projects','contact']
-          .map(id => document.getElementById(id)).filter(Boolean);
+        const ids = ['banner','about','experience','education','projects','contact'];
+        const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
         const navLinks = Array.from(document.querySelectorAll('#header .topnav .links a'));
         const io = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -443,6 +328,5 @@
         sections.forEach(sec => io.observe(sec));
       });
     </script>
-
   </body>
 </html>
