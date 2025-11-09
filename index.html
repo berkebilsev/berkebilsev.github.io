@@ -52,16 +52,14 @@
 
       /* ------------------------------------------------------------
          PROJECTS — Tam genişlik, alt alta modern kartlar
-         - article genişliğini 100% yap
-         - Kart 3 kolon grid: [ikon | içerik | aksiyon]
       -------------------------------------------------------------*/
       #projects .features{
         display: grid !important;
-        grid-template-columns: 1fr;      /* tek sütun, başlık çizgisi kadar */
+        grid-template-columns: 1fr;      /* tek sütun */
         gap: 1.25rem;
       }
       #projects .features > article{
-        width: 100% !important;          /* temanın %45/%50 genişliğini sıfırla */
+        width: 100% !important;
         margin: 0 !important;
         box-sizing: border-box;
       }
@@ -104,9 +102,15 @@
         .proj-action{ grid-column: 2 / 3; margin-top: .6rem; justify-self: start; }
         .proj-icon{ width: 48px; height: 48px; }
       }
+
+      /* ---------------------------------------------
+         Contact form durum mesajı + divider kontrolü
+      ----------------------------------------------*/
+      @media (max-width:800px){ .hide-on-mobile{ display:none !important; } }
+      .form-status{ margin-top:.5rem; font-size:.95rem; opacity:.9; }
+      .form-status.ok{ color:#6cc091; }
+      .form-status.err{ color:#ff6b6b; }
     </style>
-
-
   </head>
 
   <body class="is-preload">
@@ -266,25 +270,23 @@
           </div>
         </section>
 
-
-            <ul class="actions" style="margin-top:1rem;">
-              <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
-            </ul>
-          </div>
-        </section>
-
+        <ul class="actions" style="margin-top:1rem;">
+          <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
+        </ul>
       </section><!-- /#wrapper -->
 
       <!-- =================== CONTACT =================== -->
       <section id="contact">
         <div class="inner" style="text-align:left; padding-left:2rem; padding-right:2rem;">
+
           <h2 class="major" style="margin-left:.5rem;">Get in Touch</h2>
           <p>If you would like to contact me for collaborations, job opportunities, or project inquiries, feel free to send a message using the form below.</p>
 
           <div style="display:flex; gap:3rem; flex-wrap:wrap; padding-top:1rem;">
-            <!-- form -->
+
+            <!-- LEFT: FORM -->
             <div style="flex:1; min-width:280px; padding-left:.5rem;">
-              <form method="POST" action="https://formspree.io/f/mrgnyjaj">
+              <form id="contactForm" method="POST" action="https://formspree.io/f/mwpaeago" novalidate>
                 <div class="fields">
                   <div class="field">
                     <label for="name">Full Name</label>
@@ -299,14 +301,20 @@
                     <textarea name="message" id="message" rows="6" required></textarea>
                   </div>
                 </div>
-                <ul class="actions"><li><button type="submit" class="button primary">Send Message</button></li></ul>
+
+                <ul class="actions">
+                  <li><button type="submit" id="sendBtn" class="button primary">Send Message</button></li>
+                </ul>
+
+                <!-- Durum mesajı -->
+                <p id="formStatus" class="form-status" aria-live="polite"></p>
               </form>
             </div>
 
-            <!-- divider -->
+            <!-- DIVIDER (desktop) -->
             <div class="hide-on-mobile" style="width:1px; background:rgba(255,255,255,.15); min-height:350px;"></div>
 
-            <!-- info -->
+            <!-- RIGHT: INFO -->
             <div style="flex:1; min-width:250px; padding-left:.5rem;">
               <h3 class="major" style="margin-bottom:1.2rem;">Contact Info</h3>
               <p><strong><i class="icon solid fa-map-marker-alt"></i> Location</strong><br>İzmir, Türkiye</p>
@@ -348,6 +356,54 @@
         }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.1 });
         sections.forEach(sec => io.observe(sec));
       });
+    </script>
+
+    <!-- CONTACT: AJAX submit (sayfa yenilenmeden) -->
+    <script>
+      (function(){
+        const form = document.getElementById("contactForm");
+        if(!form) return;
+
+        const status = document.getElementById("formStatus");
+        const btn = document.getElementById("sendBtn");
+
+        form.addEventListener("submit", async (e)=>{
+          e.preventDefault();
+          status.textContent = "";
+          status.className = "form-status";
+          btn.disabled = true;
+
+          try {
+            const data = new FormData(form);
+            const res = await fetch(form.action, {
+              method: "POST",
+              headers: { "Accept": "application/json" },
+              body: data
+            });
+
+            if(res.ok){
+              form.reset();
+              status.textContent = "✅ Message sent successfully!";
+              status.classList.add("ok");
+            } else {
+              let msg = "❌ Could not send message. Please try again.";
+              try {
+                const j = await res.json();
+                if (j && j.errors && j.errors.length) {
+                  msg = j.errors.map(e => e.message).join(" ");
+                }
+              } catch(_) {}
+              status.textContent = msg;
+              status.classList.add("err");
+            }
+          } catch(err){
+            status.textContent = "❌ Network error. Please try again.";
+            status.classList.add("err");
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      })();
     </script>
   </body>
 </html>
