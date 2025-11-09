@@ -2,42 +2,52 @@
 <!--
   Solid State by HTML5 UP (CC BY 3.0)
   html5up.net | @ajlkn
+  Not: Tema atfını kaldırma; lisans gereği görünür kalmalı.
 -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Berke Bilsev — Portfolio</title>
-    <meta name="description" content="Mechatronics Engineer | MBA" />
+    <meta name="description" content="Mechatronics Engineer | Systems & Control | ROS | MATLAB | Python | MBA" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- Tema ana stilleri -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
-      /* Inline top navigation (no hamburger) */
+      /* ------------------------------------------------------------
+         ÜST MENÜYÜ DÜZ (HAMBURGERSİZ) YAPAN KÜÇÜK EK STİLLER (TR)
+         - topnav: yatay linkler
+         - smooth scroll: bölümlere yumuşak kaydırma
+      -------------------------------------------------------------*/
       #header .topnav { display: block; }
       #header .topnav .links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; align-items: center; }
       #header .topnav .links li { margin: 0; }
       #header .topnav .links a { text-decoration: none; }
-      /* Completely hide the old hamburger trigger if any */
+      /* Eski hamburger tetikleyiciyi tamamen gizle */
       #header nav a[href="#menu"] { display: none !important; }
-      /* Smooth scroll between sections */
-      html { scroll-behavior: smooth; }
-      /* Wrap on small screens */
+      /* Küçük ekranlarda satır sarması */
       @media (max-width: 980px) {
         #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
       }
+      /* Bölümler arasında yumuşak kaydırma */
+      html { scroll-behavior: smooth; }
     </style>
   </head>
   <body class="is-preload">
 
-    <!-- Page Wrapper -->
+    <!-- Sayfa Kapsayıcı -->
     <div id="page-wrapper">
 
-      <!-- Header -->
+      <!-- =========================================================
+           HEADER (TR: Üst kısım - düz menü)
+      ========================================================== -->
       <header id="header" class="alt">
-        <h1><a href="#about">Berke Bilsev</a></h1>
+        <h1><a href="#banner">Berke Bilsev</a></h1>
         <nav class="topnav">
           <ul class="links">
+            <li><a href="#banner">Intro</a></li>
             <li><a href="#about">About Me</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
@@ -47,30 +57,56 @@
         </nav>
       </header>
 
-      <!-- Wrapper (no banner) -->
+      <!-- =========================================================
+           (TR: Eski hamburger menü paneli — İSTEMEDİĞİMİZ İÇİN SİLİNDİ)
+           İstersen aşağıdaki nav#menu bloğunu tamamen kaldırabilirsin.
+      ========================================================== -->
+      <!-- <nav id="menu"> ... </nav> -->
+
+      <!-- =========================================================
+           INTRO (TR: Giriş/banner bölümü)
+      ========================================================== -->
+      <section id="banner">
+        <div class="inner">
+          <div class="logo"><span class="icon fa-gem"></span></div>
+          <h2>Hi, I'm Berke Bilsev</h2>
+          <p>Mechatronics Engineer — Systems & Control · Embedded/ROS · Test Automation · MBA</p>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           WRAPPER (TR: İçerik bölümleri)
+      ========================================================== -->
       <section id="wrapper">
 
-        <!-- About Me -->
+        <!-- ABOUT ME (TR: Hakkımda) -->
         <section id="about" class="wrapper spotlight style1">
           <div class="inner">
             <a href="#" class="image"><img src="images/pic01.jpg" alt="Profile photo" /></a>
             <div class="content">
               <h2 class="major">About Me</h2>
               <p>
-                I’m a Mechatronics Engineer from İzmir University of Economics (graduated top of class).
-                I work on common-rail assembly & test processes at Phinia/Delphi: defining fixture/machine
-                requirements, supplier coordination, commissioning, and documentation. My focus areas are
-                Systems & Control, Embedded/ROS, and test automation. I’m also pursuing an e-MBA.
+                I’m a Mechatronics Engineer (top of class) from İzmir University of Economics, working on
+                common-rail assembly & test at Phinia/Delphi: defining fixture/machine requirements, supplier
+                coordination, commissioning, and documentation. I focus on Systems & Control, Embedded/ROS,
+                and test automation while pursuing an e-MBA.
               </p>
               <p>
-                Current interests: MBSE/SysML, requirements traceability, and autonomous systems in supply chains.
+                Currently exploring MBSE/SysML, requirements traceability, and autonomous systems in supply chains.
               </p>
-              <a class="special" href="https://www.linkedin.com/in/berkebilsev" target="_blank" rel="noopener">LinkedIn</a>
+              <!-- TR: Sosyal bağlantılar -->
+              <p>
+                <a class="special" href="mailto:berkebilsev7@gmail.com">Email</a>
+                &nbsp;·&nbsp;
+                <a class="special" href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener">LinkedIn</a>
+                &nbsp;·&nbsp;
+                <a class="special" href="https://github.com/berkebilsev" target="_blank" rel="noopener">GitHub</a>
+              </p>
             </div>
           </div>
         </section>
 
-        <!-- Experience -->
+        <!-- EXPERIENCE (TR: Deneyim) -->
         <section id="experience" class="wrapper alt spotlight style2">
           <div class="inner">
             <a href="#" class="image"><img src="images/pic02.jpg" alt="Experience" /></a>
@@ -87,7 +123,7 @@
           </div>
         </section>
 
-        <!-- Education -->
+        <!-- EDUCATION (TR: Eğitim) -->
         <section id="education" class="wrapper spotlight style3">
           <div class="inner">
             <a href="#" class="image"><img src="images/pic03.jpg" alt="Education" /></a>
@@ -96,14 +132,14 @@
               <ul>
                 <li><strong>B.Sc. Mechatronics Engineering</strong> — İzmir University of Economics (Top Graduate)</li>
                 <li><strong>e-MBA (Non-thesis)</strong> — İzmir University of Economics<br/>
-                  Courses: Marketing, Organizational Dynamics, Financial Analysis/Auditing, Tech & Operations Mgmt.</li>
+                  Courses: Marketing, Organizational Dynamics, Financial Analysis/Auditing, Technology & Operations Management.</li>
               </ul>
               <p><em>Currently exploring:</em> MBSE/SysML, INCOSE best practices, model-based requirements.</p>
             </div>
           </div>
         </section>
 
-        <!-- Projects -->
+        <!-- PROJECTS (TR: Projeler) -->
         <section id="projects" class="wrapper alt style1">
           <div class="inner">
             <h2 class="major">Projects</h2>
@@ -112,7 +148,7 @@
               <article>
                 <a href="#" class="image"><img src="images/pic04.jpg" alt="Common-Rail Fixture Optimization" /></a>
                 <h3 class="major">Common-Rail Test Fixture Optimization</h3>
-                <p>Process specs, commissioning, and continuous improvement for assembly & test lines.</p>
+                <p>Process specifications, commissioning, and continuous improvement for assembly & test lines.</p>
                 <a class="special" href="https://github.com/berkebilsev" target="_blank" rel="noopener">GitHub</a>
               </article>
               <article>
@@ -140,23 +176,23 @@
           </div>
         </section>
 
-      </section>
+      </section><!-- /#wrapper -->
 
-      <!-- Contact (Footer) -->
+      <!-- CONTACT (TR: İletişim) -->
       <section id="contact">
         <div class="inner">
           <h2 class="major">Contact</h2>
           <p>For collaboration, projects, or speaking opportunities, feel free to reach out.</p>
 
-          <!-- Simple contact info (form can be wired later with Formspree/Netlify Forms) -->
+          <!-- TR: Basit iletişim bilgileri (formu istersen sonra Formspree/Netlify ile bağlarız) -->
           <ul class="contact">
             <li class="icon solid fa-home">
               İzmir, Türkiye<br />
               Remote & Hybrid
             </li>
-            <li class="icon solid fa-envelope"><a href="mailto:berke@ornekmail.com">berke@ornekmail.com</a></li>
+            <li class="icon solid fa-envelope"><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></li>
             <li class="icon brands fa-github"><a href="https://github.com/berkebilsev" target="_blank" rel="noopener">github.com/berkebilsev</a></li>
-            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/berkebilsev" target="_blank" rel="noopener">linkedin.com/in/berkebilsev</a></li>
+            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener">linkedin.com/in/berke-bilsev</a></li>
           </ul>
 
           <ul class="copyright">
@@ -166,9 +202,9 @@
         </div>
       </section>
 
-    </div>
+    </div><!-- /#page-wrapper -->
 
-    <!-- Scripts -->
+    <!-- Scripts (TR: Temanın JS dosyaları; silmeyin) -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
