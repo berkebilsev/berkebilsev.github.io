@@ -17,21 +17,55 @@
 
     <style>
       /* ------------------------------------------------------------
-         ÜST MENÜYÜ DÜZ (HAMBURGERSİZ) YAPAN KÜÇÜK EK STİLLER (TR)
-         - topnav: yatay linkler
-         - smooth scroll: bölümlere yumuşak kaydırma
+         (TR) Üst menüyü düz, yatay ve temiz göster (hamburgersiz)
       -------------------------------------------------------------*/
       #header .topnav { display: block; }
-      #header .topnav .links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; align-items: center; }
+      #header .topnav .links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+      }
       #header .topnav .links li { margin: 0; }
       #header .topnav .links a { text-decoration: none; }
-      /* Eski hamburger tetikleyiciyi tamamen gizle */
+
+      /* (TR) Hamburger menü ikonunu tamamen gizle (temadan gelebilir) */
       #header nav a[href="#menu"] { display: none !important; }
-      /* Küçük ekranlarda satır sarması */
-      @media (max-width: 980px) {
-        #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+
+      /* ------------------------------------------------------------
+         (TR) Sticky header — sayfayı kaydırınca üstte sabit kalsın
+      -------------------------------------------------------------*/
+      #header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;                 /* (TR) İçerik üstünde kalsın */
+        backdrop-filter: saturate(120%) blur(6px);
+        background: rgba(20, 20, 25, 0.65); /* (TR) Hafif şeffaf arkaplan */
       }
-      /* Bölümler arasında yumuşak kaydırma */
+
+      /* ------------------------------------------------------------
+         (TR) Aktif menü linki — görünür bölüm alt çizgisi
+      -------------------------------------------------------------*/
+      #header .topnav .links a.active {
+        border-bottom: 2px solid #6cc091;   /* (TR) Accent rengi */
+        padding-bottom: 2px;
+      }
+
+      /* ------------------------------------------------------------
+         (TR) Küçük ekranlarda menü satır sarsın
+      -------------------------------------------------------------*/
+      @media (max-width: 980px) {
+        #header .topnav .links {
+          flex-wrap: wrap;
+          gap: .75rem;
+        }
+      }
+
+      /* ------------------------------------------------------------
+         (TR) Sayfa bölümleri arasında yumuşak kaydırma
+      -------------------------------------------------------------*/
       html { scroll-behavior: smooth; }
     </style>
   </head>
@@ -211,6 +245,36 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- =========================================================
+         (TR) Aktif bölümde ilgili menü öğesini vurgulayan küçük JS
+         - IntersectionObserver: görünür olan bölümü algılar
+    ========================================================== -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const sections = [
+          'banner', 'about', 'experience', 'education', 'projects', 'contact'
+        ].map(id => document.getElementById(id)).filter(Boolean);
+
+        const navLinks = Array.from(document.querySelectorAll('#header .topnav .links a'));
+
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, {
+          rootMargin: '-30% 0px -60% 0px',   // (TR) Üstteki header payı
+          threshold: 0.1
+        });
+
+        sections.forEach(sec => io.observe(sec));
+      });
+    </script>
 
   </body>
 </html>
