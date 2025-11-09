@@ -27,7 +27,7 @@
       #header .topnav .links li { margin: 0; }
       #header .topnav .links a { text-decoration: none; }
 
-      /* Hamburger menüyü gizle (temayı ezer) */
+      /* (TR) Temanın hamburger menüsünü gizle */
       #header nav a[href="#menu"] { display: none !important; }
 
       /* Sticky header */
@@ -51,7 +51,7 @@
       html { scroll-behavior: smooth; }
 
       /* ------------------------------------------------------------
-         PROJECTS — Tam genişlik, alt alta modern kartlar
+         PROJECTS — Masaüstü (tek sütun, modern kartlar)
       -------------------------------------------------------------*/
       #projects .features{
         display: grid !important;
@@ -64,14 +64,14 @@
         box-sizing: border-box;
       }
 
-      /* Kart gövdesi */
+      /* Kart gövdesi (masaüstü) */
       .proj-card{
         width: 100%;
         display: grid;
         grid-template-columns: 64px 1fr auto; /* ikon | içerik | aksiyon */
         gap: 1rem;
         align-items: start;
-        padding: 1.4rem 1.6rem;
+        padding: 1.4rem 1.6rem 2rem;
         border-radius: 12px;
         background: rgba(255,255,255,0.04);
         transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
@@ -90,80 +90,60 @@
       }
       .proj-icon .icon{ font-size: 1.7rem; line-height: 1; }
 
-      /* İçerik ve aksiyon */
-      .proj-body h3{ margin: .1rem 0 .4rem 0; }
-      .proj-body p{ margin: 0; opacity: .9; }
+      /* İçerik ve aksiyon (masaüstü) */
+      .proj-head{ display: flex; flex-direction: column; gap: .5rem; }
+      .proj-title{ margin: 0; }
+      .proj-right{ display: grid; align-content: center; }
+      .proj-right p{ margin: 0 0 .8rem 0; opacity: .9; }
       .proj-action{ align-self: center; }
       .proj-action .special{ white-space: nowrap; }
 
-      /* Küçük ekran düzeni */
-      @media (max-width: 640px){
-        .proj-card{ grid-template-columns: 48px 1fr; }
-        .proj-action{ grid-column: 2 / 3; margin-top: .6rem; justify-self: start; }
-        .proj-icon{ width: 48px; height: 48px; }
-      }
-
-      /* ---------------------------------------------
-         Contact form durum mesajı + divider kontrolü
-      ----------------------------------------------*/
-      @media (max-width:800px){ .hide-on-mobile{ display:none !important; } }
-      .form-status{ margin-top:.5rem; font-size:.95rem; opacity:.9; }
-      .form-status.ok{ color:#6cc091; }
-      .form-status.err{ color:#ff6b6b; }
-    </style>
-  </head>
-
-/* =============== Projects — Mobil düzen =============== */
+      /* ------------------------------------------------------------
+         Projects — MOBİL DÜZEN (≤980px): 2 kolon
+         [ikon | başlık+buton]
+         [açıklama açıklama]
+      -------------------------------------------------------------*/
       @media (max-width: 980px){
-        /* Tek sütun liste, aralar açısın */
         #projects .features{
           display: grid !important;
           grid-template-columns: 1fr;
           gap: 1rem;
         }
 
-        /* Kart: 2 kolonlu kompakt grid
-           [ikon | başlık+buton]
-           [açıklama açıklama]  */
         .proj-card{
-          grid-template-columns: 48px 1fr;
+          grid-template-columns: 48px 1fr;   /* ikon | başlık+buton */
           align-items: start;
           padding: 1rem 1.1rem;
-          gap: .85rem .9rem; /* satır/kolon boşlukları */
+          gap: .85rem .9rem;                 /* satır/kolon boşlukları */
         }
 
-        /* İkon küçült */
         .proj-icon{ width:48px; height:48px; }
 
-        /* Başlık+buton aynı satırda, esnek */
         .proj-head{
           grid-column: 2 / 3;
           display: flex;
           align-items: center;
           gap: .6rem;
-          min-width: 0; /* text-overflow çalışsın */
+          min-width: 0;                      /* text-overflow için */
         }
 
-        /* Başlık: satır sarsın, taşma kır */
         .proj-title{
           font-size: 1rem;
           line-height: 1.2;
           margin: 0;
           flex: 1 1 auto;
-          overflow-wrap: anywhere;   /* uzun kelimeleri kır */
+          overflow-wrap: anywhere;
           hyphens: auto;
         }
 
-        /* Aksiyon butonu (Poster/LinkedIn) sağa hizalansın */
         .proj-action{
           margin: 0 0 0 auto;
           align-self: center;
           white-space: nowrap;
         }
 
-        /* Açıklama alt satırda tam genişlikte */
         .proj-right{
-          grid-column: 1 / -1;
+          grid-column: 1 / -1;               /* altta tam genişlik */
         }
         .proj-right p{
           margin: .4rem 0 0 0;
@@ -179,7 +159,16 @@
         .proj-title{ font-size: .98rem; }
         .proj-action .special{ font-size: .9rem; }
       }
-	
+
+      /* ---------------------------------------------
+         Contact form durum mesajı + divider kontrolü
+      ----------------------------------------------*/
+      @media (max-width:800px){ .hide-on-mobile{ display:none !important; } }
+      .form-status{ margin-top:.5rem; font-size:.95rem; opacity:.9; }
+      .form-status.ok{ color:#6cc091; }
+      .form-status.err{ color:#ff6b6b; }
+    </style>
+  </head>
 
   <body class="is-preload">
     <div id="page-wrapper">
