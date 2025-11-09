@@ -16,85 +16,95 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
-  /* ------------------------------------------------------------
-     (TR) Üst menüyü düz, yatay ve temiz göster (hamburgersiz)
-  -------------------------------------------------------------*/
-    #header .topnav { display: block; }
-    #header .topnav .links {
-      list-style: none; margin: 0; padding: 0;
-      display: flex; gap: 1.25rem; align-items: center;
-    }
-    #header .topnav .links li { margin: 0; }
-    #header .topnav .links a { text-decoration: none; }
+      /* ------------------------------------------------------------
+         ÜST MENÜ (hamburgersiz, düz ve yapışkan)
+      -------------------------------------------------------------*/
+      #header .topnav { display: block; }
+      #header .topnav .links {
+        list-style: none; margin: 0; padding: 0;
+        display: flex; gap: 1.25rem; align-items: center;
+      }
+      #header .topnav .links li { margin: 0; }
+      #header .topnav .links a { text-decoration: none; }
 
-  /* (TR) Hamburger menüyü gizle */
-    #header nav a[href="#menu"] { display: none !important; }
+      /* Hamburger menüyü gizle (temayı ezer) */
+      #header nav a[href="#menu"] { display: none !important; }
 
-  /* (TR) Sticky header */
-    #header {
-      position: sticky; top: 0; z-index: 1000;
-      backdrop-filter: saturate(120%) blur(6px);
-      background: rgba(20, 20, 25, 0.65);
-    }
+      /* Sticky header */
+      #header {
+        position: sticky; top: 0; z-index: 1000;
+        backdrop-filter: saturate(120%) blur(6px);
+        background: rgba(20, 20, 25, 0.65);
+      }
 
-    /* (TR) Aktif menü linki */
-    #header .topnav .links a.active {
-      border-bottom: 2px solid #6cc091; padding-bottom: 2px;
-    }
+      /* Aktif link vurgusu */
+      #header .topnav .links a.active {
+        border-bottom: 2px solid #6cc091; padding-bottom: 2px;
+      }
 
-    /* (TR) Küçük ekranlarda menü sarma */
-    @media (max-width: 980px) {
-      #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
-    }
+      /* Küçük ekranlarda menü kaynaşsın */
+      @media (max-width: 980px) {
+        #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+      }
 
-    /* (TR) Yumuşak kaydırma */
-    html { scroll-behavior: smooth; }
+      /* Yumuşak kaydırma */
+      html { scroll-behavior: smooth; }
 
-  /* ============================================================
-     PROJECTS — Dikey, modern kartlar (alt alta, simetrik)
-     Not: Temanın .features stilini ezip tek sütun yapıyoruz.
-  ============================================================*/
-    #projects .features{
-      display: grid !important;
-      grid-template-columns: 1fr;      /* tek sütun */
-      gap: 1.25rem;
-    }
-    #projects .features > article{ margin: 0 !important; }
+      /* ------------------------------------------------------------
+         PROJECTS — Tam genişlik, alt alta modern kartlar
+         - article genişliğini 100% yap
+         - Kart 3 kolon grid: [ikon | içerik | aksiyon]
+      -------------------------------------------------------------*/
+      #projects .features{
+        display: grid !important;
+        grid-template-columns: 1fr;      /* tek sütun, başlık çizgisi kadar */
+        gap: 1.25rem;
+      }
+      #projects .features > article{
+        width: 100% !important;          /* temanın %45/%50 genişliğini sıfırla */
+        margin: 0 !important;
+        box-sizing: border-box;
+      }
 
-    .proj-card{
-      display: grid;
-      grid-template-columns: 56px 1fr auto; /* ikon | içerik | aksiyon */
-      gap: 1rem; align-items: start;
-      padding: 1.4rem 1.6rem;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-    .proj-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-      background: rgba(255,255,255,0.06);
-    }
+      /* Kart gövdesi */
+      .proj-card{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 64px 1fr auto; /* ikon | içerik | aksiyon */
+        gap: 1rem;
+        align-items: start;
+        padding: 1.4rem 1.6rem;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+        transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      }
+      .proj-card:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,.25);
+        background: rgba(255,255,255,0.06);
+      }
 
-    .proj-icon{
-      width: 56px; height: 56px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: rgba(255,255,255,0.08);
-    }
-    .proj-icon .icon{ font-size: 1.6rem; line-height: 1; }
+      /* İkon rozeti */
+      .proj-icon{
+        width: 64px; height: 64px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: rgba(255,255,255,0.08);
+      }
+      .proj-icon .icon{ font-size: 1.7rem; line-height: 1; }
 
-    .proj-body h3{ margin: .1rem 0 .35rem 0; }
-    .proj-body p{ margin: 0; opacity: .9; }
+      /* İçerik ve aksiyon */
+      .proj-body h3{ margin: .1rem 0 .4rem 0; }
+      .proj-body p{ margin: 0; opacity: .9; }
+      .proj-action{ align-self: center; }
+      .proj-action .special{ white-space: nowrap; }
 
-    .proj-action{ align-self: center; }
-    .proj-action .special{ white-space: nowrap; }
-
-    @media (max-width: 640px){
-      .proj-card{ grid-template-columns: 44px 1fr; }
-      .proj-action{ grid-column: 2 / 3; margin-top: .6rem; }
-      .proj-icon{ width: 44px; height: 44px; }
-    }
-  </style>
+      /* Küçük ekran düzeni */
+      @media (max-width: 640px){
+        .proj-card{ grid-template-columns: 48px 1fr; }
+        .proj-action{ grid-column: 2 / 3; margin-top: .6rem; justify-self: start; }
+        .proj-icon{ width: 48px; height: 48px; }
+      }
+    </style>
 
   </head>
   <body class="is-preload">
