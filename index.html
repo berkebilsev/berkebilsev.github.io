@@ -10,23 +10,44 @@
     <meta name="description" content="Mechatronics Engineer | MBA">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+<style>
+  /* Üstte yatay menü için basit düzen */
+  #header .topnav { display: block; }
+  #header .topnav .links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; align-items: center; }
+  #header .topnav .links li { margin: 0; }
+  #header .topnav .links a { text-decoration: none; }
+  /* Eski hamburger tetikleyiciyi gizlemek için */
+  #header nav a[href="#menu"] { display: none !important; }
+  @media (max-width: 980px) {
+    #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+
   </head>
   <body class="is-preload">
 
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
-      <!-- Header -->
       <header id="header" class="alt">
-        <h1><a href="index.html">Berke Bilsev</a></h1>
-        <nav>
-          <a href="#menu">Menü</a>
-        </nav>
-      </header>
+  <h1><a href="#banner">Berke Bilsev</a></h1>
+  <nav class="topnav">
+    <ul class="links">
+      <li><a href="#banner">Giriş</a></li>
+      <li><a href="#one">Hakkımda</a></li>
+      <li><a href="#two">Odak Alanları</a></li>
+      <li><a href="#three">Deneyim</a></li>
+      <li><a href="#four">Projeler</a></li>
+      <li><a href="#footer">İletişim</a></li>
+    </ul>
+  </nav>
+</header>
+
 
       <!-- Menu -->
-      <nav id="menu">
         <div class="inner">
           <h2>Menü</h2>
           <ul class="links">
