@@ -59,9 +59,12 @@
         padding-bottom: 2px;
       }
 
-      /* Küçük ekranlarda: başlık üstte, menü altta */
+      /* Küçük ekranlarda: başlık üstte, menü altta
+   + STICKY KAPALI (scroll edince header yukarı kaybolsun) */
       @media (max-width: 780px) {
         #header {
+          position: static;            /* sticky'yi devre dışı bırak */
+          top: auto;
           flex-direction: column;
           align-items: flex-start;
           padding: 0.55rem 1.25rem;
@@ -78,6 +81,7 @@
           font-size: 0.9rem;
         }
       }
+
 
       /* Yumuşak kaydırma */
       html { scroll-behavior: smooth; }
