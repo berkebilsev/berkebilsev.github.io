@@ -21,30 +21,40 @@
       -------------------------------------------------------------*/
       #header .topnav { display: block; }
       #header .topnav .links {
-        list-style: none; margin: 0; padding: 0;
-        display: flex; gap: 1.25rem; align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
       }
       #header .topnav .links li { margin: 0; }
       #header .topnav .links a { text-decoration: none; }
 
-      /* (TR) Temanın hamburger menüsünü gizle */
+      /* Temanın hamburger menüsünü gizle */
       #header nav a[href="#menu"] { display: none !important; }
 
       /* Sticky header */
       #header {
-        position: sticky; top: 0; z-index: 1000;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
         backdrop-filter: saturate(120%) blur(6px);
         background: rgba(20, 20, 25, 0.65);
       }
 
       /* Aktif link vurgusu */
       #header .topnav .links a.active {
-        border-bottom: 2px solid #6cc091; padding-bottom: 2px;
+        border-bottom: 2px solid #6cc091;
+        padding-bottom: 2px;
       }
 
       /* Küçük ekranlarda menü kaynaşsın */
       @media (max-width: 980px) {
-        #header .topnav .links { flex-wrap: wrap; gap: .75rem; }
+        #header .topnav .links {
+          flex-wrap: wrap;
+          gap: .75rem;
+        }
       }
 
       /* Yumuşak kaydırma */
@@ -84,19 +94,40 @@
 
       /* İkon rozeti */
       .proj-icon{
-        width: 64px; height: 64px; border-radius: 50%;
-        display: grid; place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
         background: rgba(255,255,255,0.08);
       }
-      .proj-icon .icon{ font-size: 1.7rem; line-height: 1; }
+      .proj-icon .icon{
+        font-size: 1.7rem;
+        line-height: 1;
+      }
 
       /* İçerik ve aksiyon (masaüstü) */
-      .proj-head{ display: flex; flex-direction: column; gap: .5rem; }
+      .proj-head{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
       .proj-title{ margin: 0; }
-      .proj-right{ display: grid; align-content: center; }
-      .proj-right p{ margin: 0 0 .8rem 0; opacity: .9; }
+      .proj-right{
+        display: grid;
+        align-content: center;
+      }
+      .proj-right p{
+        margin: 0 0 .8rem 0;
+        opacity: .9;
+      }
       .proj-action{ align-self: center; }
       .proj-action .special{ white-space: nowrap; }
+
+      /* Ok ikonu kalsın ama metne daha yakın dursun */
+      #projects .proj-action .special:before {
+        margin-right: 0.35em;
+      }
 
       /* ------------------------------------------------------------
          Projects — MOBİL DÜZEN (≤980px): 2 kolon
@@ -117,7 +148,10 @@
           gap: .85rem .9rem;                 /* satır/kolon boşlukları */
         }
 
-        .proj-icon{ width:48px; height:48px; }
+        .proj-icon{
+          width:48px;
+          height:48px;
+        }
 
         .proj-head{
           grid-column: 2 / 3;
@@ -163,8 +197,14 @@
       /* ---------------------------------------------
          Contact form durum mesajı + divider kontrolü
       ----------------------------------------------*/
-      @media (max-width:800px){ .hide-on-mobile{ display:none !important; } }
-      .form-status{ margin-top:.5rem; font-size:.95rem; opacity:.9; }
+      @media (max-width:800px){
+        .hide-on-mobile{ display:none !important; }
+      }
+      .form-status{
+        margin-top:.5rem;
+        font-size:.95rem;
+        opacity:.9;
+      }
       .form-status.ok{ color:#6cc091; }
       .form-status.err{ color:#ff6b6b; }
     </style>
@@ -247,7 +287,10 @@
                 <li><strong>e-MBA, Business Administration</strong> — İzmir University of Economics</li>
                 <li><strong>B.Sc. Mechatronics Engineering</strong> — İzmir University of Economics (Graduated as a top-ranking student)</li>
               </ul>
-              <p><a class="special" href="https://mezun.ieu.edu.tr/tr/mezunlar/type/read/id/319" target="_blank" rel="noopener noreferrer">More</a></p>
+              <p>
+                <a class="special" href="https://mezun.ieu.edu.tr/tr/mezunlar/type/read/id/319"
+                   target="_blank" rel="noopener noreferrer">More</a>
+              </p>
             </div>
           </div>
         </section>
@@ -261,64 +304,91 @@
 
               <!-- Proje 1 -->
               <article class="proj-card">
-                <div class="proj-icon"><span class="icon solid fa-truck-loading" aria-hidden="true"></span></div>
+                <div class="proj-icon">
+                  <span class="icon solid fa-truck-loading" aria-hidden="true"></span>
+                </div>
 
                 <div class="proj-head">
                   <h3 class="major proj-title">Autonomous Forklift Prototype with Mecanum Wheels</h3>
                   <div class="proj-action">
-                    <a class="special" href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view" target="_blank" rel="noopener">Poster</a>
+                    <a class="special"
+                       href="https://drive.google.com/file/d/1Bx7G2PvPpdOwvkPZEbtbWoedKKQ4ALYQ/view"
+                       target="_blank" rel="noopener">Poster</a>
                   </div>
                 </div>
 
                 <div class="proj-right">
-                  <p>Project management, design for manufacturing, purchasing management, and software/material selection. ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.</p>
+                  <p>
+                    Project management, design for manufacturing, purchasing management, and software/material selection.
+                    ROS on Raspberry Pi for LiDAR &amp; DC encoder mapping.
+                  </p>
                 </div>
               </article>
 
               <!-- Proje 2 -->
               <article class="proj-card">
-                <div class="proj-icon"><span class="icon solid fa-robot" aria-hidden="true"></span></div>
+                <div class="proj-icon">
+                  <span class="icon solid fa-robot" aria-hidden="true"></span>
+                </div>
 
                 <div class="proj-head">
                   <h3 class="major proj-title">TEKNOFEST 2023 — Digital Technologies in Industry (Team Lead)</h3>
                   <div class="proj-action">
-		    <a class="special" href="https://github.com/berkebilsev/Autonomous-Forklift" target="_blank" rel="noopener">GitHub</a>
+                    <a class="special"
+                       href="https://github.com/berkebilsev/Autonomous-Forklift"
+                       target="_blank" rel="noopener">GitHub</a>
+                  </div>
                 </div>
 
                 <div class="proj-right">
-                  <p>Mechanical design and software for Autonomous Forklift; overall team leadership. Qualified for the finals.</p>
+                  <p>
+                    Mechanical design and software for Autonomous Forklift; overall team leadership.
+                    Qualified for the finals.
+                  </p>
                 </div>
               </article>
 
               <!-- Proje 3 -->
               <article class="proj-card">
-                <div class="proj-icon"><span class="icon solid fa-route" aria-hidden="true"></span></div>
+                <div class="proj-icon">
+                  <span class="icon solid fa-route" aria-hidden="true"></span>
+                </div>
 
                 <div class="proj-head">
                   <h3 class="major proj-title">Motion Planning with Husky UGV</h3>
                   <div class="proj-action">
-                   <a class="special" href="https://github.com/berkebilsev/Motion-Planning-with-Husky-UGV/tree/main" target="_blank" rel="noopener">GitHub</a>
+                    <a class="special"
+                       href="https://github.com/berkebilsev/Motion-Planning-with-Husky-UGV/tree/main"
+                       target="_blank" rel="noopener">GitHub</a>
                   </div>
                 </div>
 
                 <div class="proj-right">
-                  <p>Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.</p>
+                  <p>
+                    Autonomous motion on a defined route using ROS on Ubuntu for Husky UGV.
+                  </p>
                 </div>
               </article>
 
               <!-- Proje 4 -->
               <article class="proj-card">
-                <div class="proj-icon"><span class="icon solid fa-rocket" aria-hidden="true"></span></div>
+                <div class="proj-icon">
+                  <span class="icon solid fa-rocket" aria-hidden="true"></span>
+                </div>
 
                 <div class="proj-head">
                   <h3 class="major proj-title">TEKNOFEST 2022 — Rocket Competition (Team Lead)</h3>
                   <div class="proj-action">
-                    <a class="special" href="https://www.linkedin.com/in/berke-bilsev/details/projects/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="special"
+                       href="https://www.linkedin.com/in/berke-bilsev/details/projects/"
+                       target="_blank" rel="noopener">LinkedIn</a>
                   </div>
                 </div>
 
                 <div class="proj-right">
-                  <p>Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.</p>
+                  <p>
+                    Avionics software, PCB for Arduino, rocket mechanics &amp; design with Fusion 360 &amp; OpenRocket.
+                  </p>
                 </div>
               </article>
 
@@ -327,7 +397,11 @@
         </section>
 
         <ul class="actions" style="margin-top:1rem;">
-          <li><a class="button" href="https://github.com/berkebilsev?tab=repositories" target="_blank" rel="noopener">All Repositories</a></li>
+          <li>
+            <a class="button"
+               href="https://github.com/berkebilsev?tab=repositories"
+               target="_blank" rel="noopener">All Repositories</a>
+          </li>
         </ul>
       </section><!-- /#wrapper -->
 
@@ -336,7 +410,10 @@
         <div class="inner" style="text-align:left; padding-left:2rem; padding-right:2rem;">
 
           <h2 class="major" style="margin-left:.5rem;">Get in Touch</h2>
-          <p>If you would like to contact me for collaborations, job opportunities, or project inquiries, feel free to send a message using the form below.</p>
+          <p>
+            If you would like to contact me for collaborations, job opportunities, or project inquiries,
+            feel free to send a message using the form below.
+          </p>
 
           <div style="display:flex; gap:3rem; flex-wrap:wrap; padding-top:1rem;">
 
@@ -368,15 +445,36 @@
             </div>
 
             <!-- DIVIDER (desktop) -->
-            <div class="hide-on-mobile" style="width:1px; background:rgba(255,255,255,.15); min-height:350px;"></div>
+            <div class="hide-on-mobile"
+                 style="width:1px; background:rgba(255,255,255,.15); min-height:350px;"></div>
 
             <!-- RIGHT: INFO -->
             <div style="flex:1; min-width:250px; padding-left:.5rem;">
               <h3 class="major" style="margin-bottom:1.2rem;">Contact Info</h3>
-              <p><strong><i class="icon solid fa-map-marker-alt"></i> Location</strong><br>İzmir, Türkiye</p>
-              <p><strong><i class="icon solid fa-envelope"></i> Email</strong><br><a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a></p>
-              <p><strong><i class="icon brands fa-github"></i> GitHub</strong><br><a href="https://github.com/berkebilsev" target="_blank" rel="noopener">github.com/berkebilsev</a></p>
-              <p><strong><i class="icon brands fa-linkedin"></i> LinkedIn</strong><br><a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener">linkedin.com/in/berke-bilsev</a></p>
+
+              <p>
+                <strong><i class="icon solid fa-map-marker-alt"></i> Location</strong><br>
+                İzmir, Türkiye
+              </p>
+
+              <p>
+                <strong><i class="icon solid fa-envelope"></i> Email</strong><br>
+                <a href="mailto:berkebilsev7@gmail.com">berkebilsev7@gmail.com</a>
+              </p>
+
+              <p>
+                <strong><i class="icon brands fa-github"></i> GitHub</strong><br>
+                <a href="https://github.com/berkebilsev" target="_blank" rel="noopener">
+                  github.com/berkebilsev
+                </a>
+              </p>
+
+              <p>
+                <strong><i class="icon brands fa-linkedin"></i> LinkedIn</strong><br>
+                <a href="https://www.linkedin.com/in/berke-bilsev" target="_blank" rel="noopener">
+                  linkedin.com/in/berke-bilsev
+                </a>
+              </p>
             </div>
           </div>
 
@@ -402,14 +500,18 @@
         const ids = ['banner','about','experience','education','projects','contact'];
         const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
         const navLinks = Array.from(document.querySelectorAll('#header .topnav .links a'));
+
         const io = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const id = entry.target.getAttribute('id');
-              navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+              navLinks.forEach(a =>
+                a.classList.toggle('active', a.getAttribute('href') === '#' + id)
+              );
             }
           });
         }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.1 });
+
         sections.forEach(sec => io.observe(sec));
       });
     </script>
