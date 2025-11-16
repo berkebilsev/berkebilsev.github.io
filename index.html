@@ -34,13 +34,23 @@
       /* Temanın hamburger menüsünü gizle */
       #header nav a[href="#menu"] { display: none !important; }
 
-      /* Sticky header */
+      /* Sticky + flex header (desktop) */
       #header {
         position: sticky;
         top: 0;
         z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.75rem;
         backdrop-filter: saturate(120%) blur(6px);
         background: rgba(20, 20, 25, 0.65);
+      }
+
+      #header h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1;
       }
 
       /* Aktif link vurgusu */
@@ -49,16 +59,29 @@
         padding-bottom: 2px;
       }
 
-      /* Küçük ekranlarda menü kaynaşsın */
-      @media (max-width: 980px) {
+      /* Küçük ekranlarda: başlık üstte, menü altta */
+      @media (max-width: 780px) {
+        #header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0.55rem 1.25rem;
+          row-gap: 0.35rem;
+        }
+
+        #header h1 {
+          font-size: 1.15rem;
+        }
+
         #header .topnav .links {
           flex-wrap: wrap;
-          gap: .75rem;
+          gap: 0.6rem;
+          font-size: 0.9rem;
         }
       }
 
       /* Yumuşak kaydırma */
       html { scroll-behavior: smooth; }
+
 
       /* ------------------------------------------------------------
          PROJECTS — Masaüstü (tek sütun, modern kartlar)
